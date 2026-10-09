@@ -1,0 +1,31 @@
+'use strict';
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const Bench = require('../app.js');
+const models = [{id:'a',name:'Alpha',family:'A',parameters_b:2,eligibility:'eligible'}, {id:'b',name:'Beta',family:'B',parameters_b:9.653,eligibility:'eligible'}, {id:'c',eligibility:'candidate'}];
+const sample = (id, model_id, grammar, naturalness) => ({id, model_id, repeat:1, status:'complete',story:'<img src=x onerror=alert(1)>\nHele originalteksten.',word_count:200,evaluation:{grammar,naturalness,narrative:4,period:3,explanation:'<script>danger</script>',examples:['Konkret kommentar']}});
+const runs = [sample('1','a',5,3),sample('2','a',3,3),sample('3','b',5,5),{id:'4',model_id:'a',status:'failed',error:'secret API detail'},sample('5','c',5,5)];
+test('only verified models and valid complete runs rank; equal weights and population deviation',()=>{
+ const rows=Bench.aggregate(models,runs); assert.equal(rows.length,2); assert.equal(rows[0].count,2); assert.equal(rows[0].language,3.5); assert.equal(rows[0].deviation,.5);
+ assert.equal(Bench.validRun({...runs[0],evaluation:{...runs[0].evaluation,grammar:6}}),false); assert.deepEqual(Bench.aggregate(models,[]),[]);
+});
+test('external links allow HTTPS only',()=>{ for(const url of ['javascript:alert(1)','http://example.com','/relative','data:text/html,x']) assert.equal(Bench.safeURL(url),null); assert.equal(Bench.safeURL('https://example.com/model'),'https://example.com/model'); });
+class Element {
+ constructor(tag){this.tag=tag;this.childNodes=[];this.textContent='';this.value='';this.hidden=false;this.listeners={};}
+ append(...children){this.childNodes.push(...children);if(this.tag==='select'&&this.childNodes.length===children.length&&children[0])this.value=children[0].value || children[0].textContent;}
+ replaceChildren(...children){this.childNodes=[];this.value='';this.append(...children);}
+ addEventListener(event,fn){this.listeners[event]=fn;}
+}
+async function render(data, failures=[]) {
+ const html=fs.readFileSync(require.resolve('../index.html'),'utf8'); const nodes={}; for(const [,id] of html.matchAll(/id="([^"]+)"/g))nodes[id]=new Element(id==='run-select'||['family','size','sort'].includes(id)?'select':'div'); nodes.sort.value='language'; nodes.family.childNodes.push(new Element('option')); nodes.size.childNodes.push(new Element('option'));
+ const document={getElementById:id=>nodes[id],createElement:tag=>new Element(tag)};
+ const paths=[]; const context={document,console,URL,fetch:async path=>{paths.push(path);return {ok:!failures.includes(path),json:async()=>path.includes('catalog')?{schema_version:1,models,excluded:[],sources:[],max_parameters_b:9}:data};}};
+ vm.runInNewContext(fs.readFileSync(require.resolve('../app.js'),'utf8'),context); await new Promise(resolve=>setImmediate(resolve)); return {nodes,paths};
+}
+test('empty data renders honest state and relative project-path fetches',async()=>{const {nodes,paths}=await render({schema_version:1,runs:[]});assert.deepEqual(paths,['data/catalog.json','data/results.json']);assert.equal(nodes['model-count'].textContent,'0');assert.match(nodes['ranking-empty'].textContent,/Ingen placeringer/);assert.equal(nodes['story-panel'].hidden,true);assert.equal(nodes['catalog-list'].childNodes.length,3);});
+test('results render complete original text safely, sorting, filters and private errors',async()=>{const {nodes}=await render({schema_version:1,runs});assert.equal(nodes.rankings.childNodes.length,2);assert.equal(nodes.rankings.childNodes[0].childNodes[0].childNodes[0].textContent,'Beta');assert.equal(nodes['story-text'].textContent,runs[0].story);assert.equal(nodes.explanation.textContent,'<script>danger</script>');assert.equal(nodes['story-text'].childNodes.length,0);assert.doesNotMatch(nodes['failure-list'].childNodes[0].textContent,/secret/);nodes.search.value='alpha';nodes.search.listeners.input();assert.equal(nodes.rankings.childNodes.length,1);nodes.search.value='missing';nodes.search.listeners.input();assert.equal(nodes['ranking-table'].hidden,true);assert.match(nodes['ranking-empty'].textContent,/matcher/);nodes.search.value='';nodes.size.value='large';nodes.size.listeners.change();assert.equal(nodes.rankings.childNodes.length,1);nodes['run-select'].value='3';nodes['run-select'].listeners.change();assert.equal(nodes['story-title'].textContent,'Beta');});
+test('fetch errors are visible without internal error details',async()=>{const {nodes}=await render({schema_version:1,runs:[]},['data/results.json']);assert.equal(nodes.notice.hidden,false);assert.match(nodes.notice.textContent,/Målingerne kunne ikke/);assert.equal(nodes['story-count'].textContent,'0');});
+test('no raw HTML rendering or external asset dependency',()=>{assert.doesNotMatch(fs.readFileSync(require.resolve('../app.js'),'utf8'),/innerHTML|outerHTML|insertAdjacentHTML/);assert.doesNotMatch(fs.readFileSync(require.resolve('../index.html'),'utf8'),/(?:src|href)="https?:/);});
+test('decimal accounting and unjudged stories stay readable but unranked',async()=>{const run={...runs[0],status:'judge_failed',evaluation:null};const {nodes}=await render({schema_version:1,status:'partial',runs:[run],budget:{spent_usd:'0.25',reserved_usd:'0.5',usd_dkk_rate:8,limit_dkk:100}});assert.equal(nodes.spent.textContent,'2 kr.');assert.match(nodes['budget-note'].textContent,/4 kr./);assert.equal(nodes['model-count'].textContent,'0');assert.equal(nodes['story-text'].textContent,run.story);assert.match(nodes.explanation.textContent,/ingen gyldig dommervurdering/);assert.match(nodes.status.textContent,/Delvis/);});

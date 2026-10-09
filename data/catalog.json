@@ -1,0 +1,2124 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-09T09:34:29.046290+00:00",
+  "status": "checked",
+  "max_parameters_b": 10,
+  "scope": "Kendte officielle små modeller plus automatisk opdagelse i OpenRouters aktuelle katalog. Community-finetunes er ikke udtømmende kortlagt. Alle initiale poster er uverificerede kandidater.",
+  "models": [
+    {
+      "id": "bytedance/ui-tars-1.5-7b",
+      "name": "ByteDance: UI-TARS 7B ",
+      "hf_id": "ByteDance-Seed/UI-TARS-1.5-7B",
+      "family": "bytedance",
+      "parameters_b": 8.292166656,
+      "source_url": "https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:01.214957+00:00",
+      "hf_revision": "683d002dd99d8f95104d31e70391a39348857f4e",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 7.0,
+      "route": {
+        "providers": [
+          "Parasail"
+        ],
+        "prompt": "1E-7",
+        "completion": "2E-7",
+        "checked_at": "2026-10-09T09:34:01.658610+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "presence_penalty",
+        "repetition_penalty",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ]
+    },
+    {
+      "id": "hf:deepseek-ai/deepseek-llm-7b-chat",
+      "name": "DeepSeek LLM 7B Chat",
+      "family": "DeepSeek",
+      "parameters_b": 7,
+      "hf_id": "deepseek-ai/deepseek-llm-7b-chat",
+      "license": null,
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-chat",
+      "reason": "Samlet parameterantal ikke verificerbart fra vægtmetadata"
+    },
+    {
+      "id": "hf:deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "name": "DeepSeek-R1-Distill-Llama-8B",
+      "family": "DeepSeek-R1-Distill-Llama",
+      "parameters_b": 8.030261248,
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:23.868422+00:00",
+      "hf_revision": "6a6f4aa4197940add57724a7707d069478df56b1",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "name": "DeepSeek-R1-Distill-Qwen-1.5B",
+      "family": "DeepSeek-R1-Distill-Qwen",
+      "parameters_b": 1.777088,
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:23.990951+00:00",
+      "hf_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "name": "DeepSeek-R1-Distill-Qwen-7B",
+      "family": "DeepSeek-R1-Distill-Qwen",
+      "parameters_b": 7.615616512,
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:24.113053+00:00",
+      "hf_revision": "916b56a44061fd5cd7d6a8fb632557ed4f724f60",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:tiiuae/Falcon3-1B-Instruct",
+      "name": "Falcon3-1B-Instruct",
+      "family": "Falcon3",
+      "parameters_b": 1.669408768,
+      "hf_id": "tiiuae/Falcon3-1B-Instruct",
+      "license": "other",
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/tiiuae/Falcon3-1B-Instruct",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
+    },
+    {
+      "id": "hf:tiiuae/Falcon3-3B-Instruct",
+      "name": "Falcon3-3B-Instruct",
+      "family": "Falcon3",
+      "parameters_b": 3.227655168,
+      "hf_id": "tiiuae/Falcon3-3B-Instruct",
+      "license": "other",
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/tiiuae/Falcon3-3B-Instruct",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
+    },
+    {
+      "id": "hf:tiiuae/Falcon3-7B-Instruct",
+      "name": "Falcon3-7B-Instruct",
+      "family": "Falcon3",
+      "parameters_b": 7.455550464,
+      "hf_id": "tiiuae/Falcon3-7B-Instruct",
+      "license": "other",
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/tiiuae/Falcon3-7B-Instruct",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
+    },
+    {
+      "id": "hf:google/gemma-2-2b-it",
+      "name": "gemma-2-2b-it",
+      "family": "gemma-2",
+      "parameters_b": 2.614341888,
+      "hf_id": "google/gemma-2-2b-it",
+      "license": "gemma",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/google/gemma-2-2b-it",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:24.600673+00:00",
+      "hf_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:google/gemma-2b-it",
+      "name": "gemma-2b-it",
+      "family": "gemma",
+      "parameters_b": 2.506172416,
+      "hf_id": "google/gemma-2b-it",
+      "license": "gemma",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/google/gemma-2b-it",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:24.720139+00:00",
+      "hf_revision": "96988410cbdaeb8d5093d1ebdc5a8fb563e02bad",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:google/gemma-3-1b-it",
+      "name": "gemma-3-1b-it",
+      "family": "gemma-3",
+      "parameters_b": 0.999885952,
+      "hf_id": "google/gemma-3-1b-it",
+      "license": "gemma",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/google/gemma-3-1b-it",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:24.851011+00:00",
+      "hf_revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:google/gemma-7b-it",
+      "name": "gemma-7b-it",
+      "family": "gemma",
+      "parameters_b": 8.537680896,
+      "hf_id": "google/gemma-7b-it",
+      "license": "gemma",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/google/gemma-7b-it",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:24.968921+00:00",
+      "hf_revision": "9c5798d27f588501ce1e108079d2a19e4c3a2353",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "google/gemma-3-4b-it",
+      "name": "Google: Gemma 3 4B",
+      "family": "gemma-3",
+      "parameters_b": 4.300079472,
+      "hf_id": "google/gemma-3-4b-it",
+      "license": "gemma",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/google/gemma-3-4b-it",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:05.846629+00:00",
+      "hf_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "DeepInfra"
+        ],
+        "prompt": "5E-8",
+        "completion": "1E-7",
+        "checked_at": "2026-10-09T09:34:05.958593+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "top_k",
+        "top_p"
+      ],
+      "nominal_parameters_b": 4.0
+    },
+    {
+      "id": "hf:ibm-granite/granite-3.3-2b-instruct",
+      "name": "granite-3.3-2b-instruct",
+      "family": "granite-3.3",
+      "parameters_b": 2.53353984,
+      "hf_id": "ibm-granite/granite-3.3-2b-instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/ibm-granite/granite-3.3-2b-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:25.096469+00:00",
+      "hf_revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:ibm-granite/granite-3.3-8b-instruct",
+      "name": "granite-3.3-8b-instruct",
+      "family": "granite-3.3",
+      "parameters_b": 8.17086464,
+      "hf_id": "ibm-granite/granite-3.3-8b-instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/ibm-granite/granite-3.3-8b-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:25.216805+00:00",
+      "hf_revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "ibm-granite/granite-4.0-h-micro",
+      "name": "IBM: Granite 4.0 Micro",
+      "hf_id": "ibm-granite/granite-4.0-h-micro",
+      "family": "ibm-granite",
+      "parameters_b": 3.191396096,
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.0-h-micro",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:06.613591+00:00",
+      "hf_revision": "d5f01a3ea75f088947be3aae039f4ad52837dfde",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "Cloudflare"
+        ],
+        "prompt": "1.7E-8",
+        "completion": "1.12E-7",
+        "checked_at": "2026-10-09T09:34:06.896062+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "temperature",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": null
+    },
+    {
+      "id": "ibm-granite/granite-4.2-8b",
+      "name": "IBM: Granite 4.2 8B",
+      "hf_id": "ibm-granite/granite-4.2-8b",
+      "family": "ibm-granite",
+      "parameters_b": 8.79159296,
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:07.033645+00:00",
+      "hf_revision": "f8de16cdcdbc6c779ca517604e050d82cc119e44",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "route": {
+        "providers": [
+          "DeepInfra"
+        ],
+        "prompt": "6E-8",
+        "completion": "2.5E-7",
+        "checked_at": "2026-10-09T09:34:07.290764+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "inference-net/schematron-v2-small",
+      "name": "Inference.net: Schematron V2 Small",
+      "hf_id": "inference-net/schematron-v2-llama-3.2-3b",
+      "family": "inference-net",
+      "parameters_b": null,
+      "source_url": "https://huggingface.co/inference-net/schematron-v2-llama-3.2-3b",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "license": null,
+      "license_status": "unverified",
+      "reason": "HTTP 401 fra huggingface.co",
+      "nominal_parameters_b": null
+    },
+    {
+      "id": "inference-net/schematron-v2-turbo",
+      "name": "Inference.net: Schematron V2 Turbo",
+      "hf_id": "inference-net/schematron-v2-granite-4.0-h-micro",
+      "family": "inference-net",
+      "parameters_b": null,
+      "source_url": "https://huggingface.co/inference-net/schematron-v2-granite-4.0-h-micro",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "license": null,
+      "license_status": "unverified",
+      "reason": "HTTP 401 fra huggingface.co",
+      "nominal_parameters_b": null
+    },
+    {
+      "id": "liquid/lfm-2.5-2.6b:free",
+      "name": "LiquidAI: LFM2.5-2.6B (free)",
+      "hf_id": "LiquidAI/LFM2.5-2.6B",
+      "family": "liquid",
+      "parameters_b": 2.697198592,
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+      "nominal_parameters_b": 2.6,
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "license": "lfm1.0",
+      "license_status": "verified_metadata",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "gated": false,
+      "verified_at": "2026-10-09T09:36:54.512723+00:00",
+      "hf_revision": "654f9463ce32b05d0429d76fe1f580b27d4c1ac0",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "license_note": "LFM Open License: tilpasning tilladt under vilkår; kommerciel omsætningsgrænse."
+    },
+    {
+      "id": "hf:meta-llama/Meta-Llama-3-8B-Instruct",
+      "name": "Meta-Llama-3-8B-Instruct",
+      "family": "Meta-Llama-3",
+      "parameters_b": 8.030261248,
+      "hf_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "license": "llama3",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:25.343585+00:00",
+      "hf_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "meta-llama/llama-3.1-8b-instruct",
+      "name": "Meta: Llama 3.1 8B Instruct",
+      "family": "Meta-Llama-3.1",
+      "parameters_b": 8.030261248,
+      "hf_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "license": "llama3.1",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:08.460298+00:00",
+      "hf_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "Cloudflare",
+          "DeepInfra",
+          "Groq",
+          "Novita"
+        ],
+        "prompt": "1.52E-7",
+        "completion": "2.87E-7",
+        "checked_at": "2026-10-09T09:34:08.563799+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "meta-llama/llama-3.2-1b-instruct",
+      "name": "Meta: Llama 3.2 1B Instruct",
+      "family": "Llama-3.2",
+      "parameters_b": 1.2358144,
+      "hf_id": "meta-llama/Llama-3.2-1B-Instruct",
+      "license": "llama3.2",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:08.806505+00:00",
+      "hf_revision": "9213176726f574b556790deb65791e0c5aa438b6",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "Cloudflare"
+        ],
+        "prompt": "2.7E-8",
+        "completion": "2.01E-7",
+        "checked_at": "2026-10-09T09:34:09.128686+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "seed",
+        "stop",
+        "temperature",
+        "top_k",
+        "top_p"
+      ],
+      "nominal_parameters_b": 1.0
+    },
+    {
+      "id": "meta-llama/llama-3.2-3b-instruct",
+      "name": "Meta: Llama 3.2 3B Instruct",
+      "family": "Llama-3.2",
+      "parameters_b": 3.212749824,
+      "hf_id": "meta-llama/Llama-3.2-3B-Instruct",
+      "license": "llama3.2",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
+      "gated": true,
+      "verified_at": "2026-10-09T09:34:09.260293+00:00",
+      "hf_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "Cloudflare",
+          "Parasail"
+        ],
+        "prompt": "5.09E-8",
+        "completion": "3.35E-7",
+        "checked_at": "2026-10-09T09:34:09.393551+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": 3.0
+    },
+    {
+      "id": "hf:mistralai/Ministral-8B-Instruct-2410",
+      "name": "Ministral 8B",
+      "family": "Ministral",
+      "parameters_b": 8.019808256,
+      "hf_id": "mistralai/Ministral-8B-Instruct-2410",
+      "license": "other",
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
+    },
+    {
+      "id": "hf:mistralai/Mistral-7B-Instruct-v0.3",
+      "name": "Mistral-7B-Instruct-v0.3",
+      "family": "Mistral",
+      "parameters_b": 7.248023552,
+      "hf_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:25.603931+00:00",
+      "hf_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "mistralai/ministral-3b-2512",
+      "name": "Mistral: Ministral 3 3B 2512",
+      "family": "Ministral",
+      "parameters_b": 3.849090048,
+      "hf_id": "mistralai/Ministral-3-3B-Instruct-2512",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:11.465831+00:00",
+      "hf_revision": "b35d4dfe56c142746f54dbd64f579faab2744308",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "route": {
+        "providers": [
+          "Mistral"
+        ],
+        "prompt": "1.1E-7",
+        "completion": "1.1E-7",
+        "checked_at": "2026-10-09T09:34:11.696852+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "max_tokens",
+        "presence_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "nominal_parameters_b": 3.0
+    },
+    {
+      "id": "mistralai/ministral-8b-2512",
+      "name": "Mistral: Ministral 3 8B 2512",
+      "family": "Ministral",
+      "parameters_b": 8.918026716,
+      "hf_id": "mistralai/Ministral-3-8B-Instruct-2512",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "available",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:11.822932+00:00",
+      "hf_revision": "5b26027e7b19eeb4b7352e1fed3926375dd2cb4d",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "route": {
+        "providers": [
+          "Mistral"
+        ],
+        "prompt": "1.65E-7",
+        "completion": "1.65E-7",
+        "checked_at": "2026-10-09T09:34:12.245472+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "max_tokens",
+        "presence_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "nvidia/nemotron-3.5-content-safety",
+      "name": "NVIDIA: Nemotron 3.5 Content Safety",
+      "hf_id": "nvidia/Nemotron-3.5-Content-Safety",
+      "family": "nvidia",
+      "parameters_b": 4.300079472,
+      "source_url": "https://huggingface.co/nvidia/Nemotron-3.5-Content-Safety",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "license": "other",
+      "license_status": "unverified",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder",
+      "nominal_parameters_b": null
+    },
+    {
+      "id": "hf:allenai/OLMo-2-1124-7B-Instruct",
+      "name": "OLMo-2-1124-7B-Instruct",
+      "family": "OLMo-2-0325",
+      "parameters_b": 7.298617344,
+      "hf_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:25.722939+00:00",
+      "hf_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:allenai/OLMo-3-7B-Instruct",
+      "name": "OLMo-3-7B-Instruct",
+      "family": "OLMo-3",
+      "parameters_b": 7.298011136,
+      "hf_id": "allenai/OLMo-3-7B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/allenai/OLMo-3-7B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.026040+00:00",
+      "hf_revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:microsoft/Phi-3-mini-128k-instruct",
+      "name": "Phi-3 mini",
+      "family": "Phi",
+      "parameters_b": 3.821079552,
+      "hf_id": "microsoft/Phi-3-mini-128k-instruct",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.149304+00:00",
+      "hf_revision": "f3c06aed622e14ca0abf5115094e4fc9a9948f36",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:microsoft/Phi-3-small-128k-instruct",
+      "name": "Phi-3 small",
+      "family": "Phi",
+      "parameters_b": 7.392272384,
+      "hf_id": "microsoft/Phi-3-small-128k-instruct",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/microsoft/Phi-3-small-128k-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.384259+00:00",
+      "hf_revision": "e95b185a59a58450c9b1dd7347a9dee78f18113e",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:microsoft/Phi-3.5-mini-instruct",
+      "name": "Phi-3.5 mini",
+      "family": "Phi",
+      "parameters_b": 3.821079552,
+      "hf_id": "microsoft/Phi-3.5-mini-instruct",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.504163+00:00",
+      "hf_revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:microsoft/Phi-4-mini-instruct",
+      "name": "Phi-4 mini",
+      "family": "Phi",
+      "parameters_b": 3.83602176,
+      "hf_id": "microsoft/Phi-4-mini-instruct",
+      "license": "mit",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.632254+00:00",
+      "hf_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen2.5-0.5B-Instruct",
+      "name": "Qwen2.5-0.5B-Instruct",
+      "family": "Qwen2.5",
+      "parameters_b": 0.494032768,
+      "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.753535+00:00",
+      "hf_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen2.5-1.5B-Instruct",
+      "name": "Qwen2.5-1.5B-Instruct",
+      "family": "Qwen2.5",
+      "parameters_b": 1.543714304,
+      "hf_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:26.882629+00:00",
+      "hf_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen2.5-3B-Instruct",
+      "name": "Qwen2.5-3B-Instruct",
+      "family": "Qwen2.5",
+      "parameters_b": 3.085938688,
+      "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+      "license": "qwen-research",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.000581+00:00",
+      "hf_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU."
+    },
+    {
+      "id": "hf:Qwen/Qwen3-0.6B",
+      "name": "Qwen3-0.6B",
+      "family": "Qwen3",
+      "parameters_b": 0.751632384,
+      "hf_id": "Qwen/Qwen3-0.6B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-0.6B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.125842+00:00",
+      "hf_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3-1.7B",
+      "name": "Qwen3-1.7B",
+      "family": "Qwen3",
+      "parameters_b": 2.031739904,
+      "hf_id": "Qwen/Qwen3-1.7B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-1.7B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.249652+00:00",
+      "hf_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3-4B",
+      "name": "Qwen3-4B",
+      "family": "Qwen3",
+      "parameters_b": 4.022468096,
+      "hf_id": "Qwen/Qwen3-4B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-4B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.370322+00:00",
+      "hf_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3-4B-Instruct-2507",
+      "name": "Qwen3-4B-Instruct-2507",
+      "family": "Qwen3",
+      "parameters_b": 4.022468096,
+      "hf_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.489091+00:00",
+      "hf_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3.5-0.8B",
+      "name": "Qwen3.5-0.8B",
+      "family": "Qwen3.5",
+      "parameters_b": 0.873438784,
+      "hf_id": "Qwen/Qwen3.5-0.8B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.632350+00:00",
+      "hf_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3.5-2B",
+      "name": "Qwen3.5-2B",
+      "family": "Qwen3.5",
+      "parameters_b": 2.274069824,
+      "hf_id": "Qwen/Qwen3.5-2B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-2B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.762189+00:00",
+      "hf_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:Qwen/Qwen3.5-4B",
+      "name": "Qwen3.5-4B",
+      "family": "Qwen3.5",
+      "parameters_b": 4.659865088,
+      "hf_id": "Qwen/Qwen3.5-4B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-4B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:27.890715+00:00",
+      "hf_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "qwen/qwen-2.5-7b-instruct",
+      "name": "Qwen: Qwen2.5 7B Instruct",
+      "family": "Qwen2.5",
+      "parameters_b": 7.615616512,
+      "hf_id": "Qwen/Qwen2.5-7B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:15.571198+00:00",
+      "hf_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 7.0
+    },
+    {
+      "id": "qwen/qwen3-8b",
+      "name": "Qwen: Qwen3 8B",
+      "family": "Qwen3",
+      "parameters_b": 8.19073536,
+      "hf_id": "Qwen/Qwen3-8B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-8B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:16.518685+00:00",
+      "hf_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "qwen/qwen3-vl-8b-instruct",
+      "name": "Qwen: Qwen3 VL 8B Instruct",
+      "hf_id": "Qwen/Qwen3-VL-8B-Instruct",
+      "family": "qwen",
+      "parameters_b": 8.767123696,
+      "source_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:17.995194+00:00",
+      "hf_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 8.0,
+      "route": {
+        "providers": [
+          "Parasail"
+        ],
+        "prompt": "2.5E-7",
+        "completion": "7.5E-7",
+        "checked_at": "2026-10-09T09:34:18.344052+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ]
+    },
+    {
+      "id": "qwen/qwen3-vl-8b-thinking",
+      "name": "Qwen: Qwen3 VL 8B Thinking",
+      "hf_id": "Qwen/Qwen3-VL-8B-Thinking",
+      "family": "qwen",
+      "parameters_b": 8.767123696,
+      "source_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Thinking",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:18.468216+00:00",
+      "hf_revision": "92f3c4b4feadd3a016ef468d103bb5f58b2a2c6b",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "qwen/qwen3.5-9b",
+      "name": "Qwen: Qwen3.5-9B",
+      "hf_id": "Qwen/Qwen3.5-9B",
+      "family": "qwen",
+      "parameters_b": 9.653104368,
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:19.084110+00:00",
+      "hf_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "DeepInfra",
+          "Parasail",
+          "Together",
+          "Venice"
+        ],
+        "prompt": "1.7E-7",
+        "completion": "2.5E-7",
+        "checked_at": "2026-10-09T09:34:19.178039+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": 9.0
+    },
+    {
+      "id": "rekaai/reka-edge",
+      "name": "Reka Edge",
+      "hf_id": "RekaAI/reka-edge-2603",
+      "family": "rekaai",
+      "parameters_b": 7.128509568,
+      "source_url": "https://huggingface.co/RekaAI/reka-edge-2603",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "license": "other",
+      "license_status": "unverified",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder",
+      "nominal_parameters_b": null
+    },
+    {
+      "id": "sao10k/l3-lunaris-8b",
+      "name": "Sao10K: Llama 3 8B Lunaris",
+      "hf_id": "Sao10K/L3-8B-Lunaris-v1",
+      "family": "sao10k",
+      "parameters_b": 8.030261248,
+      "source_url": "https://huggingface.co/Sao10K/L3-8B-Lunaris-v1",
+      "availability": "available",
+      "eligibility": "eligible",
+      "license": "llama3",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:19.939036+00:00",
+      "hf_revision": "8479c2a7ee119c935b9a02c921cc2a85b698dfe8",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "route": {
+        "providers": [
+          "DeepInfra",
+          "Parasail"
+        ],
+        "prompt": "4E-8",
+        "completion": "5E-8",
+        "checked_at": "2026-10-09T09:34:20.027577+00:00"
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "nominal_parameters_b": 8.0
+    },
+    {
+      "id": "hf:HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "name": "SmolLM2-1.7B-Instruct",
+      "family": "SmolLM2",
+      "parameters_b": 1.711376384,
+      "hf_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.031342+00:00",
+      "hf_revision": "31b70e2e869a7173562077fd711b654946d38674",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:HuggingFaceTB/SmolLM2-135M-Instruct",
+      "name": "SmolLM2-135M-Instruct",
+      "family": "SmolLM2",
+      "parameters_b": 0.134515008,
+      "hf_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.181320+00:00",
+      "hf_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:HuggingFaceTB/SmolLM2-360M-Instruct",
+      "name": "SmolLM2-360M-Instruct",
+      "family": "SmolLM2",
+      "parameters_b": 0.36182112,
+      "hf_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.313550+00:00",
+      "hf_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:HuggingFaceTB/SmolLM3-3B",
+      "name": "SmolLM3-3B",
+      "family": "SmolLM3",
+      "parameters_b": 3.075098624,
+      "hf_id": "HuggingFaceTB/SmolLM3-3B",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.435244+00:00",
+      "hf_revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:stabilityai/stablelm-2-zephyr-1_6b",
+      "name": "StableLM 2 Zephyr 1.6B",
+      "family": "StableLM",
+      "parameters_b": 1.644515328,
+      "hf_id": "stabilityai/stablelm-2-zephyr-1_6b",
+      "license": "other",
+      "license_status": "unverified",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "source_url": "https://huggingface.co/stabilityai/stablelm-2-zephyr-1_6b",
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
+    },
+    {
+      "id": "tencent/hy-mt2-1.8b",
+      "name": "Tencent: Hy-MT2-1.8B",
+      "hf_id": "tencent/Hy-MT2-1.8B",
+      "family": "tencent",
+      "parameters_b": 2.038515712,
+      "source_url": "https://huggingface.co/tencent/Hy-MT2-1.8B",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:20.526662+00:00",
+      "hf_revision": "9a341cd1b679d3efd23b46e847b01745a71ed792",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 1.8
+    },
+    {
+      "id": "tencent/hy-mt2-7b",
+      "name": "Tencent: Hy-MT2-7B",
+      "hf_id": "tencent/Hy-MT2-7B",
+      "family": "tencent",
+      "parameters_b": 8.029540352,
+      "source_url": "https://huggingface.co/tencent/Hy-MT2-7B",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:20.884056+00:00",
+      "hf_revision": "9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
+      "nominal_parameters_b": 7.0
+    },
+    {
+      "id": "hf:TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "name": "TinyLlama 1.1B Chat",
+      "family": "TinyLlama",
+      "parameters_b": 1.100048384,
+      "hf_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.684231+00:00",
+      "hf_revision": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "microsoft/wizardlm-2-8x22b",
+      "name": "WizardLM-2 8x22B",
+      "hf_id": "microsoft/WizardLM-2-8x22B",
+      "family": "microsoft",
+      "parameters_b": null,
+      "source_url": "https://huggingface.co/microsoft/WizardLM-2-8x22B",
+      "availability": "unavailable",
+      "eligibility": "candidate",
+      "license": null,
+      "license_status": "unverified",
+      "reason": "HTTP 401 fra huggingface.co"
+    },
+    {
+      "id": "hf:01-ai/Yi-1.5-6B-Chat",
+      "name": "Yi-1.5-6B-Chat",
+      "family": "Yi-1.5",
+      "parameters_b": 6.06103552,
+      "hf_id": "01-ai/Yi-1.5-6B-Chat",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-6B-Chat",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:28.923258+00:00",
+      "hf_revision": "771924d1c83d67527d665913415d7086f11ea9c0",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    },
+    {
+      "id": "hf:01-ai/Yi-1.5-9B-Chat",
+      "name": "Yi-1.5-9B-Chat",
+      "family": "Yi-1.5",
+      "parameters_b": 8.829407232,
+      "hf_id": "01-ai/Yi-1.5-9B-Chat",
+      "license": "apache-2.0",
+      "license_status": "verified_metadata",
+      "availability": "unavailable",
+      "eligibility": "eligible",
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat",
+      "gated": false,
+      "verified_at": "2026-10-09T09:34:29.046231+00:00",
+      "hf_revision": "1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "aion-labs/aion-rp-llama-3.1-8b",
+      "reason": "Modelkort/vægtidentitet mangler; ingen automatisk størrelses-/licensverifikation"
+    },
+    {
+      "id": "anthracite-org/magnum-v4-72b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "arcee-ai/trinity-large-thinking",
+      "name": "Arcee AI: Trinity Large Thinking",
+      "parameters_b": 398.635286016,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "cohere/command-a",
+      "name": "Cohere: Command A",
+      "parameters_b": 111.057580032,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "cohere/north-mini-code:free",
+      "name": "Cohere: North Mini Code (free)",
+      "parameters_b": 30.484303872,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-chat",
+      "name": "DeepSeek: DeepSeek V3",
+      "parameters_b": 684.531386,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-chat-v3-0324",
+      "name": "DeepSeek: DeepSeek V3 0324",
+      "parameters_b": 684.531386,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-chat-v3.1",
+      "name": "DeepSeek: DeepSeek V3.1",
+      "parameters_b": 684.531386,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-r1",
+      "name": "DeepSeek: R1",
+      "parameters_b": 684.489845504,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-r1-0528",
+      "name": "DeepSeek: R1 0528",
+      "parameters_b": 684.531386,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v3.1-terminus",
+      "name": "DeepSeek: DeepSeek V3.1 Terminus",
+      "parameters_b": 684.531386,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v3.2",
+      "name": "DeepSeek: DeepSeek V3.2",
+      "parameters_b": 685.355329792,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v3.2-exp",
+      "name": "DeepSeek: DeepSeek V3.2 Exp",
+      "parameters_b": 685.396921376,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash",
+      "name": "DeepSeek: DeepSeek V4 Flash 0423",
+      "parameters_b": 290.944616402,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "parameters_b": 304.180418494,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
+      "parameters_b": 304.646824126,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "parameters_b": 1598.839674782,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro-0813",
+      "name": "DeepSeek: DeepSeek V4 Pro 0813",
+      "parameters_b": 1650.497936906,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "parameters_b": 763.205315794,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "google/gemma-2-27b-it",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "google/gemma-3-12b-it",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "google/gemma-3-27b-it",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "google/gemma-4-26b-a4b-it",
+      "name": "Google: Gemma 4 26B A4B ",
+      "parameters_b": 25.805936206,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "google/gemma-4-31b-it",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "gryphe/mythomax-l2-13b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "inclusionai/ling-3.0-flash",
+      "name": "inclusionAI: Ling 3.0 Flash",
+      "parameters_b": 127.4864056,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "inclusionai/ling-3.0-flash-vl",
+      "name": "inclusionAI: Ling 3.0 Flash VL",
+      "parameters_b": 124.848460496,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "meituan/longcat-2.0",
+      "name": "Meituan: LongCat 2.0",
+      "parameters_b": 1775.560491136,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "meta-llama/llama-3.1-70b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "meta-llama/llama-3.3-70b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "meta-llama/llama-4-maverick",
+      "name": "Meta: Llama 4 Maverick",
+      "parameters_b": 401.583781376,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "meta-llama/llama-4-scout",
+      "name": "Meta: Llama 4 Scout",
+      "parameters_b": 108.641793536,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "meta-llama/llama-guard-4-12b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "meta/muse-glimmer-30b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "microsoft/phi-4",
+      "name": "Microsoft: Phi 4",
+      "parameters_b": 14.6595072,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "microsoft/wizardlm-2-8x22b",
+      "reason": "MoE-eksperter tilsammen overstiger den nominelle 9B-grænse"
+    },
+    {
+      "id": "minimax/minimax-01",
+      "name": "MiniMax: MiniMax-01",
+      "parameters_b": 456.089655296,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "minimax/minimax-m2",
+      "name": "MiniMax: MiniMax M2",
+      "parameters_b": 228.689764864,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "minimax/minimax-m2.1",
+      "name": "MiniMax: MiniMax M2.1",
+      "parameters_b": 228.689764864,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "minimax/minimax-m2.5",
+      "name": "MiniMax: MiniMax M2.5",
+      "parameters_b": 228.703644928,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "minimax/minimax-m2.7",
+      "name": "MiniMax: MiniMax M2.7",
+      "parameters_b": 228.689764864,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "minimax/minimax-m3",
+      "name": "MiniMax: MiniMax M3",
+      "parameters_b": 427.04014016,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "mistralai/devstral-2512",
+      "name": "Mistral: Devstral 2 2512",
+      "parameters_b": 125.02598984,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "mistralai/ministral-14b-2512",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "mistralai/mistral-nemo",
+      "name": "Mistral: Mistral Nemo",
+      "parameters_b": 12.2477824,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "mistralai/mistral-small-24b-instruct-2501",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "mistralai/mistral-small-2603",
+      "name": "Mistral: Mistral Small 4",
+      "parameters_b": 119.401317952,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "mistralai/mistral-small-3.1-24b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "mistralai/mistral-small-3.2-24b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-instruct",
+      "reason": "MoE-eksperter tilsammen overstiger den nominelle 9B-grænse"
+    },
+    {
+      "id": "mistralai/voxtral-small-24b-2507",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "moonshotai/kimi-k2",
+      "name": "MoonshotAI: Kimi K2 0711",
+      "parameters_b": 1026.408235864,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k2-0905",
+      "name": "MoonshotAI: Kimi K2 0905",
+      "parameters_b": 1026.470735448,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k2-thinking",
+      "name": "MoonshotAI: Kimi K2 Thinking",
+      "parameters_b": 1026.408240256,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k2.5",
+      "name": "MoonshotAI: Kimi K2.5",
+      "parameters_b": 1026.879376368,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k2.6",
+      "name": "MoonshotAI: Kimi K2.6",
+      "parameters_b": 1026.879376368,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k2.7-code",
+      "name": "MoonshotAI: Kimi K2.7 Code",
+      "parameters_b": 1026.879376368,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "name": "MoonshotAI: Kimi K3",
+      "parameters_b": 2779.931837184,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nex-agi/nex-n2.5-mini",
+      "name": "Nex AGI: Nex-N2.5-Mini",
+      "parameters_b": 35.107181936,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nex-agi/nex-n2.5-pro",
+      "name": "Nex AGI: Nex-N2.5-Pro",
+      "parameters_b": 396.802360816,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nousresearch/hermes-3-llama-3.1-405b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "nousresearch/hermes-3-llama-3.1-70b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "nousresearch/hermes-4-405b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b",
+      "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
+      "parameters_b": 31.577937344,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
+      "parameters_b": 33.015632214,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b",
+      "name": "NVIDIA: Nemotron 3 Super",
+      "parameters_b": 123.611012096,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "NVIDIA: Nemotron 3 Ultra",
+      "parameters_b": 560.524578816,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-lightning",
+      "name": "NVIDIA: Nemotron 3.5 Lightning",
+      "parameters_b": 31.577937344,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "openai/gpt-oss-120b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "openai/gpt-oss-20b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "openai/gpt-oss-safeguard-20b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "poolside/laguna-s-2.1",
+      "name": "Poolside: Laguna S 2.1",
+      "parameters_b": 117.5619776,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "poolside/laguna-xs-2.1",
+      "name": "Poolside: Laguna XS 2.1",
+      "parameters_b": 33.442617088,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "prism-ml/ternary-bonsai-2-27b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen-2.5-72b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen-2.5-coder-32b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen2.5-vl-72b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3-14b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b",
+      "name": "Qwen: Qwen3 235B A22B",
+      "parameters_b": 235.09363456,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b-2507",
+      "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+      "parameters_b": 235.09363456,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b-thinking-2507",
+      "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+      "parameters_b": 235.09363456,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-30b-a3b",
+      "name": "Qwen: Qwen3 30B A3B",
+      "parameters_b": 30.532122624,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-30b-a3b-instruct-2507",
+      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
+      "parameters_b": 30.532122624,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-30b-a3b-thinking-2507",
+      "name": "Qwen: Qwen3 30B A3B Thinking 2507",
+      "parameters_b": 30.532122624,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-32b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3-coder",
+      "name": "Qwen: Qwen3 Coder 480B A35B",
+      "parameters_b": 480.154875392,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-coder-30b-a3b-instruct",
+      "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+      "parameters_b": 30.532122624,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-coder-next",
+      "name": "Qwen: Qwen3 Coder Next",
+      "parameters_b": 79.674391296,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-instruct",
+      "name": "Qwen: Qwen3 Next 80B A3B Instruct",
+      "parameters_b": 81.32486272,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-thinking",
+      "name": "Qwen: Qwen3 Next 80B A3B Thinking",
+      "parameters_b": 81.32486272,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-vl-235b-a22b-instruct",
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct",
+      "parameters_b": 235.670022896,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-vl-235b-a22b-thinking",
+      "name": "Qwen: Qwen3 VL 235B A22B Thinking",
+      "parameters_b": 235.670022896,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-vl-30b-a3b-instruct",
+      "name": "Qwen: Qwen3 VL 30B A3B Instruct",
+      "parameters_b": 31.070754032,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-vl-30b-a3b-thinking",
+      "name": "Qwen: Qwen3 VL 30B A3B Thinking",
+      "parameters_b": 31.070754032,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3-vl-32b-instruct",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3.5-122b-a10b",
+      "name": "Qwen: Qwen3.5-122B-A10B",
+      "parameters_b": 125.086497008,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3.5-27b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3.5-35b-a3b",
+      "name": "Qwen: Qwen3.5-35B-A3B",
+      "parameters_b": 35.951822704,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3.5-397b-a17b",
+      "name": "Qwen: Qwen3.5 397B A17B",
+      "parameters_b": 403.397928944,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3.6-27b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3.6-35b-a3b",
+      "name": "Qwen: Qwen3.6 35B A3B",
+      "parameters_b": 35.951822704,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3.8-2.4t-a95b",
+      "name": "Qwen: Qwen3.8 2.4T A95B",
+      "parameters_b": 2446.182725504,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "qwen/qwen3.8-27b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "qwen/qwen3.8-flash",
+      "name": "Qwen: Qwen3.8 Flash",
+      "parameters_b": 179.999981459,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "rekaai/reka-flash-3",
+      "name": "Reka Flash 3",
+      "parameters_b": 20.90548224,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "sao10k/l3.1-euryale-70b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "sao10k/l3.3-euryale-70b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "stepfun/step-3.5-flash",
+      "name": "StepFun: Step 3.5 Flash",
+      "parameters_b": 199.384301376,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "stepfun/step-3.7-flash",
+      "name": "StepFun: Step 3.7 Flash",
+      "parameters_b": 201.36531616,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "tencent/hunyuan-a13b-instruct",
+      "name": "Tencent: Hunyuan A13B Instruct",
+      "parameters_b": 80.393183232,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "tencent/hy-mt2-30b-a3b",
+      "name": "Tencent: Hy-MT2-30B-A3B",
+      "parameters_b": 30.064725888,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "tencent/hy3",
+      "name": "Tencent: Hy3",
+      "parameters_b": 298.786155776,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "tencent/hy3-preview",
+      "name": "Tencent: Hy3 preview",
+      "parameters_b": 298.786155776,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "tencent/hy4-preview",
+      "name": "Tencent: Hy4 preview",
+      "parameters_b": 779.960992733,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "thedrummer/cydonia-24b-v4.1",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "thedrummer/skyfall-36b-v2",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "thedrummer/unslopnemo-12b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "thinkingmachines/inkling",
+      "name": "Thinking Machines: Inkling",
+      "parameters_b": 952.377623626,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "thinkingmachines/inkling-small",
+      "name": "Thinking Machines: Inkling Small",
+      "parameters_b": 265.95643909,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "undi95/remm-slerp-l2-13b",
+      "reason": "Over 9B i modelnavn; ikke et 9B-lokalt mål"
+    },
+    {
+      "id": "xiaomi/mimo-v2.5",
+      "name": "Xiaomi: MiMo-V2.5",
+      "parameters_b": 310.77504,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "xiaomi/mimo-v2.5-pro",
+      "name": "Xiaomi: MiMo-V2.5-Pro",
+      "parameters_b": 1023.1828416,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "xiaomi/mimo-v2.6-flash",
+      "name": "Xiaomi: MiMo-V2.6-Flash",
+      "parameters_b": 310.756322688,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "xiaomi/mimo-v2.6-pro",
+      "name": "Xiaomi: MiMo-V2.6-Pro",
+      "parameters_b": 1024.216603392,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.5",
+      "name": "Z.ai: GLM 4.5",
+      "parameters_b": 358.337791296,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.5-air",
+      "name": "Z.ai: GLM 4.5 Air",
+      "parameters_b": 110.468824832,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.5v",
+      "name": "Z.ai: GLM 4.5V",
+      "parameters_b": 107.71093312,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.6",
+      "name": "Z.ai: GLM 4.6",
+      "parameters_b": 356.785898816,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.6v",
+      "name": "Z.ai: GLM 4.6V",
+      "parameters_b": 107.71093312,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.7",
+      "name": "Z.ai: GLM 4.7",
+      "parameters_b": 358.337791296,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-4.7-flash",
+      "name": "Z.ai: GLM 4.7 Flash",
+      "parameters_b": 31.221488576,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-5",
+      "name": "Z.ai: GLM 5",
+      "parameters_b": 753.864139008,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-5.1",
+      "name": "Z.ai: GLM 5.1",
+      "parameters_b": 753.864139008,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-5.2",
+      "name": "Z.ai: GLM 5.2",
+      "parameters_b": 753.32994048,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "parameters_b": 753.32994048,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    },
+    {
+      "id": "z-ai/glm-5.3-flash",
+      "name": "Z.ai: GLM 5.3 Flash",
+      "parameters_b": 321.32303139,
+      "reason": "Over 10B faktiske samlede parametre (afrunding for nominelle modeller op til 9B)"
+    }
+  ],
+  "sources": [
+    {
+      "name": "OpenRouter modelkatalog",
+      "url": "https://openrouter.ai/models"
+    },
+    {
+      "name": "Qwen officielle udgivelser (læst)",
+      "url": "https://github.com/QwenLM/Qwen3.5"
+    },
+    {
+      "name": "Qwen3 officielle udgivelser (læst)",
+      "url": "https://github.com/QwenLM/Qwen3"
+    },
+    {
+      "name": "SmolLM officielle udgivelser (læst)",
+      "url": "https://github.com/huggingface/smollm"
+    },
+    {
+      "name": "OpenRouter providerkatalog (hovedkontorslande)",
+      "url": "https://openrouter.ai/api/v1/providers"
+    },
+    {
+      "name": "Hugging Face modelkort og vægtmetadata",
+      "url": "https://huggingface.co/models"
+    }
+  ],
+  "hosted_catalog_count": 469,
+  "max_nominal_parameters_b": 9
+}

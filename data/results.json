@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_key",
+  "generated_at": null,
+  "judge_model": null,
+  "prompt": "Skriv en fortælling på dansk på 180–220 ord om, hvordan det var at være ung i Danmark i 1980’erne. Fortæl i jeg-form gennem en konkret scene med sanselige detaljer og et lille handlingsforløb. Gør sproget naturligt og miljøet troværdigt for perioden. Skriv kun selve fortællingen, uden titel, forklaringer eller ordtal.",
+  "repetitions": 3,
+  "budget": {
+    "limit_dkk": 100,
+    "usd_dkk_rate": 8.0,
+    "spent_usd": 0,
+    "reserved_usd": 0,
+    "accounting_status": "not_started"
+  },
+  "runs": []
+}
