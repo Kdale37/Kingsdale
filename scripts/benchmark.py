@@ -238,6 +238,11 @@ def refresh_catalog(path=ROOT / 'data/catalog.json', api=request_json):
     for identity, model in by_hf.items():
         if identity in seen:
             continue
+        local_name = model.get('name', '') + ' ' + model['id']
+        moe = re.search(r'(\d+)\s*[x×]\s*(\d+(?:\.\d+)?)\s*[bB]', local_name)
+        if moe and int(moe.group(1)) * float(moe.group(2)) > 9:
+            excluded.append({'id': model['id'], 'reason': 'MoE-eksperter tilsammen overstiger den nominelle 9B-grænse'})
+            continue
         model.update(availability='unavailable', eligibility='candidate', license_status='unverified')
         model.pop('route', None)
         try:
@@ -253,7 +258,7 @@ def refresh_catalog(path=ROOT / 'data/catalog.json', api=request_json):
         else:
             available.append(model)
     catalog.update(models=sorted(available, key=lambda m: m['name'].casefold()),
-                   excluded=excluded, checked_at=now(), status='checked',
+                   excluded=list({item['id']: item for item in excluded}.values()), checked_at=now(), status='checked',
                    hosted_catalog_count=len(current), max_parameters_b=10, max_nominal_parameters_b=9)
     write_json(path, catalog)
     print(f'Katalog: {len(available)} poster, {sum(m["availability"] == "available" for m in available)} verificerede API-ruter')

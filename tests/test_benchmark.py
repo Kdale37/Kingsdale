@@ -125,7 +125,8 @@ class MetadataTests(unittest.TestCase):
     def test_discovery_preserves_local_candidates_and_excludes_large_moe(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'catalog.json'
-            b.write_json(path, {'schema_version': 1, 'models': [fixture_model()], 'excluded': []})
+            large_seed = dict(fixture_model(), id='test/8x22b', hf_id='test/moe', name='MoE 8x22B')
+            b.write_json(path, {'schema_version': 1, 'models': [fixture_model(), large_seed], 'excluded': []})
             entries = [{'id': 'test/hosted-4b', 'name': 'Hosted 4B', 'hugging_face_id': 'test/hosted'},
                        {'id': 'test/30b-a3b', 'name': 'MoE 30B-A3B', 'hugging_face_id': 'test/moe'},
                        {'id': 'test/8x22b', 'name': 'MoE 8x22B', 'hugging_face_id': 'test/moe'}]

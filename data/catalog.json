@@ -1304,19 +1304,6 @@
       "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
     },
     {
-      "id": "microsoft/wizardlm-2-8x22b",
-      "name": "WizardLM-2 8x22B",
-      "hf_id": "microsoft/WizardLM-2-8x22B",
-      "family": "microsoft",
-      "parameters_b": null,
-      "source_url": "https://huggingface.co/microsoft/WizardLM-2-8x22B",
-      "availability": "unavailable",
-      "eligibility": "candidate",
-      "license": null,
-      "license_status": "unverified",
-      "reason": "HTTP 401 fra huggingface.co"
-    },
-    {
       "id": "hf:01-ai/Yi-1.5-6B-Chat",
       "name": "Yi-1.5-6B-Chat",
       "family": "Yi-1.5",
@@ -1546,7 +1533,7 @@
     },
     {
       "id": "microsoft/wizardlm-2-8x22b",
-      "reason": "MoE-eksperter tilsammen overstiger den nominelle 9B-grænse"
+      "reason": "MoE: 8 × 22B eksperter overstiger den nominelle 9B-grænse"
     },
     {
       "id": "minimax/minimax-01",
