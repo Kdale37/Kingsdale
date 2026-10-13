@@ -25,6 +25,8 @@ def main():
     snapshot = {'schema_version': 1, 'checked_at': b.now(), 'source': 'https://router.huggingface.co/v1/models',
                 'judge_access': 'gpt-5-mini', 'models': selected}
     b.write_json(b.ROOT / 'data/hf-pricing-snapshot.json', snapshot)
+    b.write_json(b.ROOT / 'data/provider-preflight.json', {'status': 'passed', 'checked_at': b.now(),
+                 'hf_catalog_entries': len(selected), 'judge_access': 'gpt-5-mini', 'paid_calls': 0})
     print(f'Both service keys accepted for read-only checks; {len(selected)} candidate catalogue entries saved. No paid calls.')
 
 
@@ -32,4 +34,6 @@ if __name__ == '__main__':
     try:
         main()
     except b.SetupError as exc:
+        b.write_json(b.ROOT / 'data/provider-preflight.json', {'status': 'blocked', 'checked_at': b.now(),
+                     'error': str(exc), 'paid_calls': 0})
         sys.exit(str(exc))
