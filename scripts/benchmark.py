@@ -300,7 +300,10 @@ def make_payload(model_id, messages, route, max_tokens, parameters=(), judge=Fal
 def price_bound(payload, route):
     # UTF-8 bytes upper-bound ordinary BPE input tokens; large framing reserve.
     input_bound = len(json.dumps(payload['messages'], ensure_ascii=False).encode('utf-8')) + 4096
-    return dec(route['prompt']) * input_bound + dec(route['completion']) * payload['max_tokens']
+    output_bound = payload.get('max_tokens', payload.get('max_completion_tokens'))
+    if type(output_bound) is not int or output_bound <= 0:
+        raise SetupError('Output-tokenloft mangler')
+    return dec(route['prompt']) * input_bound + dec(route['completion']) * output_bound
 
 
 class Budget:
@@ -339,14 +342,20 @@ class Budget:
 def paid_call(payload, route, budget, key, api=request_json):
     reserved = price_bound(payload, route)
     budget.reserve(reserved)  # Persist BEFORE sending: a timeout cannot evade accounting.
-    response = api(API + '/chat/completions', payload, key)
+    response = api(route.get('api_url', API + '/chat/completions'), payload, key)
     usage = response.get('usage', {})
     actual = usage.get('cost')
+    if route.get('service') in ('huggingface', 'openai'):
+        import hf_openai
+        actual = hf_openai.cost_from_tokens(usage, route)
     budget.settle(reserved, actual)
     metadata = {'id': response.get('id'), 'model': response.get('model'),
                 'provider': response.get('provider'), 'tokens': usage.get('total_tokens'),
                 'cost_usd': actual, 'reserved_usd': str(reserved) if actual is None else '0',
                 'timestamp': now()}
+    if route.get('service'):
+        metadata.update(service=route['service'], requested_provider=route['providers'][0],
+                        cost_basis='quoted_token_upper_bound', price_source=route['source_url'])
     choices = response.get('choices')
     if not isinstance(choices, list) or not choices:
         raise SetupError('API returnerede ingen tekst')
@@ -355,7 +364,7 @@ def paid_call(payload, route, budget, key, api=request_json):
     if not isinstance(text, str) or not text.strip():
         raise SetupError('API returnerede tom fortælling/vurdering')
     provider = response.get('provider')
-    if provider not in route['providers']:
+    if not route.get('service') and provider not in route['providers']:
         raise SetupError('Svaret dokumenterer ikke en tilladt inferenceoperatør')
     return text, choice.get('finish_reason'), metadata
 
@@ -396,7 +405,9 @@ def run(args, api=request_json):
         catalog, results = read_json(catalog_path), read_json(path)
         if not 0 < args.budget_dkk <= 100 or not 0 < args.usd_dkk_rate <= 100:
             raise SetupError('Budget skal være over 0 og højst 100 DKK; kurs skal være positiv')
-        models = [m for m in catalog['models'] if m.get('availability') == 'available' and m.get('eligibility') == 'eligible']
+        use_hf = getattr(args, 'backend', 'openrouter') == 'huggingface'
+        models = [m for m in catalog['models'] if m.get('availability') == 'available' and m.get('eligibility') == 'eligible'
+                  and (not use_hf or m.get('route', {}).get('service') == 'huggingface')]
         if args.models:
             wanted = set(args.models.split(','))
             models = [m for m in models if m['id'] in wanted]
@@ -409,11 +420,20 @@ def run(args, api=request_json):
         if args.dry_run:
             print(f'Ingen API-kald: {len(models)} modeller × {args.repetitions} prøver. Budget {args.budget_dkk} DKK.')
             return
-        key = os.environ.get('OPENROUTER_API_KEY')
-        if not key:
-            raise SetupError('OPENROUTER_API_KEY mangler; indtast den sikkert i miljøindstillinger/GitHub Actions secrets')
-        current = api(API + '/models').get('data', [])
-        judge, judge_route = pick_judge(current, api, args.judge)
+        if use_hf:
+            import hf_openai
+            key, judge_key = os.environ.get('HF_TOKEN'), os.environ.get('OPENAI_API_KEY') or os.environ.get('BENCHMARK_JUDGE_KEY')
+            if not key or not judge_key:
+                raise SetupError('HF_TOKEN og OPENAI_API_KEY skal være tilføjet som repository secrets')
+            judge = {'id': 'gpt-5-mini'}
+            judge_route = dict(hf_openai.JUDGE_ROUTE)
+        else:
+            key = os.environ.get('OPENROUTER_API_KEY')
+            judge_key = key
+            if not key:
+                raise SetupError('OPENROUTER_API_KEY mangler; indtast den sikkert i miljøindstillinger/GitHub Actions secrets')
+            current = api(API + '/models').get('data', [])
+            judge, judge_route = pick_judge(current, api, args.judge)
         if results.get('judge_model') and results['judge_model'] != judge['id'] and results['runs']:
             raise SetupError('Skift af dommer kræver et separat resultatsæt')
         results['judge_model'] = judge['id']
@@ -422,8 +442,11 @@ def run(args, api=request_json):
         results['catalog_checked_at'] = catalog['checked_at']
         save = lambda: write_json(path, results)
         budget = Budget(results, save, args.budget_dkk, args.usd_dkk_rate)
+        if use_hf:
+            results['backend'] = 'huggingface_openai'
+            results['budget']['cost_basis'] = 'quoted_token_upper_bound'
         # Verify fresh prices and providers even when the catalogue snapshot is old.
-        model_routes = {model['id']: routes(model['id'], api) for model in models}
+        model_routes = {model['id']: model['route'] if use_hf else routes(model['id'], api) for model in models}
         lookup = {(r['model_id'], r['repeat']): r for r in results['runs']}
         jobs = [(m, n) for n in range(1, args.repetitions + 1) for m in models]
         results['planned_model_ids'] = [model['id'] for model in models]
@@ -437,7 +460,15 @@ def run(args, api=request_json):
             if row and row['status'] in ('generating', 'judging'):
                 raise SetupError('Afbrudt API-kald har ukendt udfald; kontrollér reservationen før manuel genoptagelse')
             if row and row['status'] in ('generation_failed', 'judge_failed'):
-                continue  # Never silently repeat chargeable failures.
+                if not getattr(args, 'retry_failed', False):
+                    continue  # Never silently repeat chargeable failures.
+                history = row.setdefault('attempt_history', [])
+                history.append({k: v for k, v in row.items() if k != 'attempt_history'})
+                row['status'] = 'generated' if row.get('story') and row.get('finish_reason') == 'stop' else 'pending'
+                if row['status'] == 'pending':
+                    row['story'] = None
+                row['error'] = None
+                save()
             if not row:
                 row = {'id': hashlib.sha256(f'{model["id"]}:{repeat}'.encode()).hexdigest()[:16],
                        'model_id': model['id'], 'repeat': repeat, 'status': 'pending',
@@ -448,8 +479,12 @@ def run(args, api=request_json):
             phase = 'generation'
             try:
                 if not row.get('story'):
-                    payload = make_payload(model['id'], [{'role': 'user', 'content': results['prompt']}],
-                                           model_routes[model['id']], 1536, model.get('supported_parameters', []))
+                    messages = [{'role': 'user', 'content': results['prompt']}]
+                    if use_hf:
+                        payload = hf_openai.generation_payload(model, messages, model_routes[model['id']])
+                    else:
+                        payload = make_payload(model['id'], messages, model_routes[model['id']], 1536,
+                                               model.get('supported_parameters', []))
                     row['generation_settings'] = {k: v for k, v in payload.items() if k != 'messages'}
                     row['status'] = 'generating'
                     save()
@@ -463,12 +498,12 @@ def run(args, api=request_json):
                 phase = 'judge'
                 messages = [{'role': 'system', 'content': RUBRIC},
                             {'role': 'user', 'content': json.dumps({'text': row['story']}, ensure_ascii=False)}]
-                payload = make_payload(judge['id'], messages, judge_route, 2048,
-                                       judge.get('supported_parameters', []), judge=True)
+                payload = hf_openai.judge_payload(messages) if use_hf else make_payload(
+                    judge['id'], messages, judge_route, 2048, judge.get('supported_parameters', []), judge=True)
                 row['judge_settings'] = {k: v for k, v in payload.items() if k != 'messages'}
                 row['status'] = 'judging'
                 save()
-                text, finish, meta = paid_call(payload, judge_route, budget, key, api)
+                text, finish, meta = paid_call(payload, judge_route, budget, judge_key, api)
                 row['judge_usage'] = meta
                 if finish != 'stop':
                     raise SetupError('Dommerens vurdering blev afbrudt')
@@ -488,7 +523,8 @@ def run(args, api=request_json):
                     # Isolated model/JSON failures must not hide the remaining models.
                     # Halt only on authorization, routing contract or accounting failures.
                     results['status'] = 'partial'
-                    halted = ('HTTP 401' in str(exc) or 'HTTP 403' in str(exc)
+                    halted = ('HTTP 401' in str(exc) or 'HTTP 403' in str(exc) or 'HTTP 402' in str(exc)
+                              or 'HTTP 429' in str(exc)
                               or 'inferenceoperatør' in str(exc)
                               or 'overskred reservationen' in str(exc))
             results['generated_at'] = now()
@@ -533,8 +569,10 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     refresh = sub.add_parser('catalog', help='Discover current hosted models; verify weights, sizes, licences and routes')
     refresh.add_argument('--catalog', default=str(ROOT / 'data/catalog.json'))
+    refresh.add_argument('--backend', choices=['huggingface', 'openrouter'], default='huggingface')
     runner = sub.add_parser('run', help='Run/resume paid benchmark; same data retains spending reservations')
     runner.add_argument('--catalog', default=str(ROOT / 'data/catalog.json'))
+    runner.add_argument('--backend', choices=['huggingface', 'openrouter'], default='huggingface')
     runner.add_argument('--results', default=str(ROOT / 'data/results.json'))
     runner.add_argument('--models', help='Optional comma-separated verified model IDs')
     runner.add_argument('--judge', choices=JUDGES)
@@ -542,13 +580,18 @@ def main():
     runner.add_argument('--budget-dkk', type=float, default=100)
     runner.add_argument('--usd-dkk-rate', type=float, default=8)
     runner.add_argument('--dry-run', action='store_true')
+    runner.add_argument('--retry-failed', action='store_true', help='Explicitly retry known failures after correcting prerequisites; retains costs and attempt history')
     validation = sub.add_parser('validate')
     validation.add_argument('--catalog', default=str(ROOT / 'data/catalog.json'))
     validation.add_argument('--results', default=str(ROOT / 'data/results.json'))
     args = parser.parse_args()
     try:
         if args.command == 'catalog':
-            refresh_catalog(Path(args.catalog))
+            if args.backend == 'huggingface':
+                import hf_openai
+                hf_openai.refresh(Path(args.catalog))
+            else:
+                refresh_catalog(Path(args.catalog))
         elif args.command == 'run':
             run(args)
         else:
@@ -560,4 +603,5 @@ def main():
 
 
 if __name__ == '__main__':
+    sys.modules.setdefault('benchmark', sys.modules[__name__])
     raise SystemExit(main())

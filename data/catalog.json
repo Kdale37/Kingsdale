@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-10-09T09:34:29.046290+00:00",
+  "checked_at": "2026-10-13T18:54:35.655923+00:00",
   "status": "checked",
   "max_parameters_b": 10,
-  "scope": "Kendte officielle små modeller plus automatisk opdagelse i OpenRouters aktuelle katalog. Community-finetunes er ikke udtømmende kortlagt. Alle initiale poster er uverificerede kandidater.",
+  "scope": "Hugging Face: officielle små modeller og aktuelle routermodeller. Aktiv adgang og verificerbar pris vises separat.",
   "models": [
     {
       "id": "bytedance/ui-tars-1.5-7b",
@@ -12,24 +12,15 @@
       "family": "bytedance",
       "parameters_b": 8.292166656,
       "source_url": "https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:01.214957+00:00",
+      "verified_at": "2026-10-13T18:54:12.272877+00:00",
       "hf_revision": "683d002dd99d8f95104d31e70391a39348857f4e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
       "nominal_parameters_b": 7.0,
-      "route": {
-        "providers": [
-          "Parasail"
-        ],
-        "prompt": "1E-7",
-        "completion": "2E-7",
-        "checked_at": "2026-10-09T09:34:01.658610+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -44,6 +35,10 @@
         "top_k",
         "top_logprobs",
         "top_p"
+      ],
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
       ]
     },
     {
@@ -67,14 +62,17 @@
       "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
       "license": "mit",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:23.868422+00:00",
+      "verified_at": "2026-10-13T18:54:13.038352+00:00",
       "hf_revision": "6a6f4aa4197940add57724a7707d069478df56b1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
@@ -84,14 +82,17 @@
       "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
       "license": "mit",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:23.990951+00:00",
+      "verified_at": "2026-10-13T18:54:13.526940+00:00",
       "hf_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
@@ -101,14 +102,17 @@
       "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
       "license": "mit",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:24.113053+00:00",
+      "verified_at": "2026-10-13T18:54:13.900561+00:00",
       "hf_revision": "916b56a44061fd5cd7d6a8fb632557ed4f724f60",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:tiiuae/Falcon3-1B-Instruct",
@@ -157,14 +161,17 @@
       "hf_id": "google/gemma-2-2b-it",
       "license": "gemma",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-2-2b-it",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:24.600673+00:00",
+      "verified_at": "2026-10-13T18:54:15.171690+00:00",
       "hf_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:google/gemma-2b-it",
@@ -174,14 +181,17 @@
       "hf_id": "google/gemma-2b-it",
       "license": "gemma",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-2b-it",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:24.720139+00:00",
+      "verified_at": "2026-10-13T18:54:15.590866+00:00",
       "hf_revision": "96988410cbdaeb8d5093d1ebdc5a8fb563e02bad",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:google/gemma-3-1b-it",
@@ -191,14 +201,17 @@
       "hf_id": "google/gemma-3-1b-it",
       "license": "gemma",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-3-1b-it",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:24.851011+00:00",
+      "verified_at": "2026-10-13T18:54:15.942606+00:00",
       "hf_revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:google/gemma-7b-it",
@@ -208,14 +221,17 @@
       "hf_id": "google/gemma-7b-it",
       "license": "gemma",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-7b-it",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:24.968921+00:00",
+      "verified_at": "2026-10-13T18:54:16.365914+00:00",
       "hf_revision": "9c5798d27f588501ce1e108079d2a19e4c3a2353",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "google/gemma-3-4b-it",
@@ -229,17 +245,9 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-3-4b-it",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:05.846629+00:00",
+      "verified_at": "2026-10-13T18:54:16.719760+00:00",
       "hf_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "DeepInfra"
-        ],
-        "prompt": "5E-8",
-        "completion": "1E-7",
-        "checked_at": "2026-10-09T09:34:05.958593+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -255,7 +263,20 @@
         "top_k",
         "top_p"
       ],
-      "nominal_parameters_b": 4.0
+      "nominal_parameters_b": 4.0,
+      "route": {
+        "service": "huggingface",
+        "api_url": "https://router.huggingface.co/v1/chat/completions",
+        "model": "google/gemma-3-4b-it:deepinfra",
+        "providers": [
+          "deepinfra"
+        ],
+        "prompt": "5E-8",
+        "completion": "1E-7",
+        "checked_at": "2026-10-13T18:36:55.931228+00:00",
+        "source_url": "https://router.huggingface.co/v1/models",
+        "price_basis": "USD_per_million_tokens"
+      }
     },
     {
       "id": "hf:ibm-granite/granite-3.3-2b-instruct",
@@ -269,10 +290,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/ibm-granite/granite-3.3-2b-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:25.096469+00:00",
+      "verified_at": "2026-10-13T18:54:17.084884+00:00",
       "hf_revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:ibm-granite/granite-3.3-8b-instruct",
@@ -286,10 +307,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/ibm-granite/granite-3.3-8b-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:25.216805+00:00",
+      "verified_at": "2026-10-13T18:54:17.494945+00:00",
       "hf_revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "ibm-granite/granite-4.0-h-micro",
@@ -298,22 +319,14 @@
       "family": "ibm-granite",
       "parameters_b": 3.191396096,
       "source_url": "https://huggingface.co/ibm-granite/granite-4.0-h-micro",
-      "availability": "available",
+      "availability": "unavailable",
       "eligibility": "eligible",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:06.613591+00:00",
+      "verified_at": "2026-10-13T18:54:17.715671+00:00",
       "hf_revision": "d5f01a3ea75f088947be3aae039f4ad52837dfde",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "Cloudflare"
-        ],
-        "prompt": "1.7E-8",
-        "completion": "1.12E-7",
-        "checked_at": "2026-10-09T09:34:06.896062+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -330,7 +343,8 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": null
+      "nominal_parameters_b": null,
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "ibm-granite/granite-4.2-8b",
@@ -344,18 +358,9 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:07.033645+00:00",
+      "verified_at": "2026-10-13T18:54:18.092834+00:00",
       "hf_revision": "f8de16cdcdbc6c779ca517604e050d82cc119e44",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "route": {
-        "providers": [
-          "DeepInfra"
-        ],
-        "prompt": "6E-8",
-        "completion": "2.5E-7",
-        "checked_at": "2026-10-09T09:34:07.290764+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "include_reasoning",
@@ -378,7 +383,20 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "route": {
+        "service": "huggingface",
+        "api_url": "https://router.huggingface.co/v1/chat/completions",
+        "model": "ibm-granite/granite-4.2-8b:deepinfra",
+        "providers": [
+          "deepinfra"
+        ],
+        "prompt": "6.0000000000000005E-8",
+        "completion": "2.5E-7",
+        "checked_at": "2026-10-13T18:36:55.931228+00:00",
+        "source_url": "https://router.huggingface.co/v1/models",
+        "price_basis": "USD_per_million_tokens"
+      }
     },
     {
       "id": "inference-net/schematron-v2-small",
@@ -391,8 +409,8 @@
       "eligibility": "candidate",
       "license": null,
       "license_status": "unverified",
-      "reason": "HTTP 401 fra huggingface.co",
-      "nominal_parameters_b": null
+      "nominal_parameters_b": null,
+      "reason": "HTTP 401 fra huggingface.co"
     },
     {
       "id": "inference-net/schematron-v2-turbo",
@@ -405,8 +423,8 @@
       "eligibility": "candidate",
       "license": null,
       "license_status": "unverified",
-      "reason": "HTTP 401 fra huggingface.co",
-      "nominal_parameters_b": null
+      "nominal_parameters_b": null,
+      "reason": "HTTP 401 fra huggingface.co"
     },
     {
       "id": "liquid/lfm-2.5-2.6b:free",
@@ -420,12 +438,12 @@
       "eligibility": "eligible",
       "license": "lfm1.0",
       "license_status": "verified_metadata",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
       "gated": false,
-      "verified_at": "2026-10-09T09:36:54.512723+00:00",
+      "verified_at": "2026-10-13T18:54:18.932819+00:00",
       "hf_revision": "654f9463ce32b05d0429d76fe1f580b27d4c1ac0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "license_note": "LFM Open License: tilpasning tilladt under vilkår; kommerciel omsætningsgrænse."
+      "license_note": "LFM Open License: tilpasning tilladt under vilkår; kommerciel omsætningsgrænse.",
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:meta-llama/Meta-Llama-3-8B-Instruct",
@@ -435,41 +453,33 @@
       "hf_id": "meta-llama/Meta-Llama-3-8B-Instruct",
       "license": "llama3",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:25.343585+00:00",
+      "verified_at": "2026-10-13T18:54:19.489817+00:00",
       "hf_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "meta-llama/llama-3.1-8b-instruct",
       "name": "Meta: Llama 3.1 8B Instruct",
       "family": "Meta-Llama-3.1",
       "parameters_b": 8.030261248,
-      "hf_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
       "license": "llama3.1",
       "license_status": "verified_metadata",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
-      "source_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "source_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:08.460298+00:00",
+      "verified_at": "2026-10-13T18:54:20.264231+00:00",
       "hf_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "Cloudflare",
-          "DeepInfra",
-          "Groq",
-          "Novita"
-        ],
-        "prompt": "1.52E-7",
-        "completion": "2.87E-7",
-        "checked_at": "2026-10-09T09:34:08.563799+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -489,7 +499,13 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "deepinfra",
+        "featherless-ai",
+        "novita"
+      ]
     },
     {
       "id": "meta-llama/llama-3.2-1b-instruct",
@@ -499,21 +515,13 @@
       "hf_id": "meta-llama/Llama-3.2-1B-Instruct",
       "license": "llama3.2",
       "license_status": "verified_metadata",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:08.806505+00:00",
+      "verified_at": "2026-10-13T18:54:20.520722+00:00",
       "hf_revision": "9213176726f574b556790deb65791e0c5aa438b6",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "Cloudflare"
-        ],
-        "prompt": "2.7E-8",
-        "completion": "2.01E-7",
-        "checked_at": "2026-10-09T09:34:09.128686+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -527,7 +535,11 @@
         "top_k",
         "top_p"
       ],
-      "nominal_parameters_b": 1.0
+      "nominal_parameters_b": 1.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "meta-llama/llama-3.2-3b-instruct",
@@ -537,22 +549,13 @@
       "hf_id": "meta-llama/Llama-3.2-3B-Instruct",
       "license": "llama3.2",
       "license_status": "verified_metadata",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-09T09:34:09.260293+00:00",
+      "verified_at": "2026-10-13T18:54:21.137609+00:00",
       "hf_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "Cloudflare",
-          "Parasail"
-        ],
-        "prompt": "5.09E-8",
-        "completion": "3.35E-7",
-        "checked_at": "2026-10-09T09:34:09.393551+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -569,7 +572,11 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": 3.0
+      "nominal_parameters_b": 3.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:mistralai/Ministral-8B-Instruct-2410",
@@ -596,10 +603,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:25.603931+00:00",
+      "verified_at": "2026-10-13T18:54:22.074637+00:00",
       "hf_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "mistralai/ministral-3b-2512",
@@ -609,22 +616,13 @@
       "hf_id": "mistralai/Ministral-3-3B-Instruct-2512",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "available",
+      "availability": "unavailable",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:11.465831+00:00",
+      "verified_at": "2026-10-13T18:54:22.474532+00:00",
       "hf_revision": "b35d4dfe56c142746f54dbd64f579faab2744308",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "route": {
-        "providers": [
-          "Mistral"
-        ],
-        "prompt": "1.1E-7",
-        "completion": "1.1E-7",
-        "checked_at": "2026-10-09T09:34:11.696852+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "max_tokens",
@@ -638,7 +636,8 @@
         "tools",
         "top_p"
       ],
-      "nominal_parameters_b": 3.0
+      "nominal_parameters_b": 3.0,
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "mistralai/ministral-8b-2512",
@@ -648,22 +647,13 @@
       "hf_id": "mistralai/Ministral-3-8B-Instruct-2512",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "available",
+      "availability": "unavailable",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:11.822932+00:00",
+      "verified_at": "2026-10-13T18:54:22.688188+00:00",
       "hf_revision": "5b26027e7b19eeb4b7352e1fed3926375dd2cb4d",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "route": {
-        "providers": [
-          "Mistral"
-        ],
-        "prompt": "1.65E-7",
-        "completion": "1.65E-7",
-        "checked_at": "2026-10-09T09:34:12.245472+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "max_tokens",
@@ -677,7 +667,8 @@
         "tools",
         "top_p"
       ],
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "nvidia/nemotron-3.5-content-safety",
@@ -690,8 +681,8 @@
       "eligibility": "candidate",
       "license": "other",
       "license_status": "unverified",
-      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder",
-      "nominal_parameters_b": null
+      "nominal_parameters_b": null,
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
     },
     {
       "id": "hf:allenai/OLMo-2-1124-7B-Instruct",
@@ -705,27 +696,27 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:25.722939+00:00",
+      "verified_at": "2026-10-13T18:54:23.307269+00:00",
       "hf_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:allenai/OLMo-3-7B-Instruct",
       "name": "OLMo-3-7B-Instruct",
       "family": "OLMo-3",
       "parameters_b": 7.298011136,
-      "hf_id": "allenai/OLMo-3-7B-Instruct",
+      "hf_id": "allenai/Olmo-3-7B-Instruct",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "availability": "unavailable",
       "eligibility": "eligible",
-      "source_url": "https://huggingface.co/allenai/OLMo-3-7B-Instruct",
+      "source_url": "https://huggingface.co/allenai/Olmo-3-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.026040+00:00",
+      "verified_at": "2026-10-13T18:54:23.725783+00:00",
       "hf_revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:microsoft/Phi-3-mini-128k-instruct",
@@ -739,10 +730,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.149304+00:00",
+      "verified_at": "2026-10-13T18:54:23.923929+00:00",
       "hf_revision": "f3c06aed622e14ca0abf5115094e4fc9a9948f36",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:microsoft/Phi-3-small-128k-instruct",
@@ -756,10 +747,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3-small-128k-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.384259+00:00",
+      "verified_at": "2026-10-13T18:54:24.296471+00:00",
       "hf_revision": "e95b185a59a58450c9b1dd7347a9dee78f18113e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:microsoft/Phi-3.5-mini-instruct",
@@ -773,10 +764,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.504163+00:00",
+      "verified_at": "2026-10-13T18:54:24.516900+00:00",
       "hf_revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:microsoft/Phi-4-mini-instruct",
@@ -790,10 +781,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.632254+00:00",
+      "verified_at": "2026-10-13T18:54:24.706004+00:00",
       "hf_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:Qwen/Qwen2.5-0.5B-Instruct",
@@ -803,14 +794,17 @@
       "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.753535+00:00",
+      "verified_at": "2026-10-13T18:54:24.900199+00:00",
       "hf_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen2.5-1.5B-Instruct",
@@ -820,14 +814,17 @@
       "hf_id": "Qwen/Qwen2.5-1.5B-Instruct",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:26.882629+00:00",
+      "verified_at": "2026-10-13T18:54:25.089286+00:00",
       "hf_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen2.5-3B-Instruct",
@@ -837,14 +834,17 @@
       "hf_id": "Qwen/Qwen2.5-3B-Instruct",
       "license": "qwen-research",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.000581+00:00",
+      "verified_at": "2026-10-13T18:54:25.280814+00:00",
       "hf_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
-      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU."
+      "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3-0.6B",
@@ -854,14 +854,17 @@
       "hf_id": "Qwen/Qwen3-0.6B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-0.6B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.125842+00:00",
+      "verified_at": "2026-10-13T18:54:25.480933+00:00",
       "hf_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3-1.7B",
@@ -871,14 +874,17 @@
       "hf_id": "Qwen/Qwen3-1.7B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-1.7B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.249652+00:00",
+      "verified_at": "2026-10-13T18:54:25.680058+00:00",
       "hf_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3-4B",
@@ -888,14 +894,17 @@
       "hf_id": "Qwen/Qwen3-4B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-4B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.370322+00:00",
+      "verified_at": "2026-10-13T18:54:25.875596+00:00",
       "hf_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3-4B-Instruct-2507",
@@ -905,14 +914,17 @@
       "hf_id": "Qwen/Qwen3-4B-Instruct-2507",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.489091+00:00",
+      "verified_at": "2026-10-13T18:54:26.056984+00:00",
       "hf_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3.5-0.8B",
@@ -926,10 +938,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.632350+00:00",
+      "verified_at": "2026-10-13T18:54:26.415676+00:00",
       "hf_revision": "2fc06364715b967f1860aea9cf38778875588b17",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:Qwen/Qwen3.5-2B",
@@ -939,14 +951,17 @@
       "hf_id": "Qwen/Qwen3.5-2B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-2B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.762189+00:00",
+      "verified_at": "2026-10-13T18:54:26.605687+00:00",
       "hf_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:Qwen/Qwen3.5-4B",
@@ -956,14 +971,17 @@
       "hf_id": "Qwen/Qwen3.5-4B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-4B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:27.890715+00:00",
+      "verified_at": "2026-10-13T18:54:26.945810+00:00",
       "hf_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "qwen/qwen-2.5-7b-instruct",
@@ -973,15 +991,18 @@
       "hf_id": "Qwen/Qwen2.5-7B-Instruct",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:15.571198+00:00",
+      "verified_at": "2026-10-13T18:54:27.111859+00:00",
       "hf_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "nominal_parameters_b": 7.0
+      "nominal_parameters_b": 7.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "qwen/qwen3-8b",
@@ -991,15 +1012,18 @@
       "hf_id": "Qwen/Qwen3-8B",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-8B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:16.518685+00:00",
+      "verified_at": "2026-10-13T18:54:27.467030+00:00",
       "hf_revision": "b968826d9c46dd6066d109eabc6255188de91218",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "qwen/qwen3-vl-8b-instruct",
@@ -1008,24 +1032,15 @@
       "family": "qwen",
       "parameters_b": 8.767123696,
       "source_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:17.995194+00:00",
+      "verified_at": "2026-10-13T18:54:27.840105+00:00",
       "hf_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
       "nominal_parameters_b": 8.0,
-      "route": {
-        "providers": [
-          "Parasail"
-        ],
-        "prompt": "2.5E-7",
-        "completion": "7.5E-7",
-        "checked_at": "2026-10-09T09:34:18.344052+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -1043,6 +1058,10 @@
         "top_k",
         "top_logprobs",
         "top_p"
+      ],
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
       ]
     },
     {
@@ -1052,16 +1071,19 @@
       "family": "qwen",
       "parameters_b": 8.767123696,
       "source_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Thinking",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:18.468216+00:00",
+      "verified_at": "2026-10-13T18:54:28.694987+00:00",
       "hf_revision": "92f3c4b4feadd3a016ef468d103bb5f58b2a2c6b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "qwen/qwen3.5-9b",
@@ -1075,20 +1097,9 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:19.084110+00:00",
+      "verified_at": "2026-10-13T18:54:28.915161+00:00",
       "hf_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "DeepInfra",
-          "Parasail",
-          "Together",
-          "Venice"
-        ],
-        "prompt": "1.7E-7",
-        "completion": "2.5E-7",
-        "checked_at": "2026-10-09T09:34:19.178039+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "include_reasoning",
@@ -1110,7 +1121,20 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": 9.0
+      "nominal_parameters_b": 9.0,
+      "route": {
+        "service": "huggingface",
+        "api_url": "https://router.huggingface.co/v1/chat/completions",
+        "model": "Qwen/Qwen3.5-9B:deepinfra",
+        "providers": [
+          "deepinfra"
+        ],
+        "prompt": "1E-7",
+        "completion": "1.5E-7",
+        "checked_at": "2026-10-13T18:36:55.931228+00:00",
+        "source_url": "https://router.huggingface.co/v1/models",
+        "price_basis": "USD_per_million_tokens"
+      }
     },
     {
       "id": "rekaai/reka-edge",
@@ -1123,8 +1147,8 @@
       "eligibility": "candidate",
       "license": "other",
       "license_status": "unverified",
-      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder",
-      "nominal_parameters_b": null
+      "nominal_parameters_b": null,
+      "reason": "Licens kræver manuel vurdering af finjusteringsrettigheder"
     },
     {
       "id": "sao10k/l3-lunaris-8b",
@@ -1133,23 +1157,14 @@
       "family": "sao10k",
       "parameters_b": 8.030261248,
       "source_url": "https://huggingface.co/Sao10K/L3-8B-Lunaris-v1",
-      "availability": "available",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "license": "llama3",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:19.939036+00:00",
+      "verified_at": "2026-10-13T18:54:29.491069+00:00",
       "hf_revision": "8479c2a7ee119c935b9a02c921cc2a85b698dfe8",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "route": {
-        "providers": [
-          "DeepInfra",
-          "Parasail"
-        ],
-        "prompt": "4E-8",
-        "completion": "5E-8",
-        "checked_at": "2026-10-09T09:34:20.027577+00:00"
-      },
       "supported_parameters": [
         "frequency_penalty",
         "logit_bias",
@@ -1167,7 +1182,11 @@
         "top_logprobs",
         "top_p"
       ],
-      "nominal_parameters_b": 8.0
+      "nominal_parameters_b": 8.0,
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:HuggingFaceTB/SmolLM2-1.7B-Instruct",
@@ -1181,10 +1200,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.031342+00:00",
+      "verified_at": "2026-10-13T18:54:31.584113+00:00",
       "hf_revision": "31b70e2e869a7173562077fd711b654946d38674",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:HuggingFaceTB/SmolLM2-135M-Instruct",
@@ -1198,10 +1217,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.181320+00:00",
+      "verified_at": "2026-10-13T18:54:32.011905+00:00",
       "hf_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:HuggingFaceTB/SmolLM2-360M-Instruct",
@@ -1215,10 +1234,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.313550+00:00",
+      "verified_at": "2026-10-13T18:54:32.303426+00:00",
       "hf_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:HuggingFaceTB/SmolLM3-3B",
@@ -1232,10 +1251,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.435244+00:00",
+      "verified_at": "2026-10-13T18:54:32.717077+00:00",
       "hf_revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:stabilityai/stablelm-2-zephyr-1_6b",
@@ -1262,11 +1281,11 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:20.526662+00:00",
+      "verified_at": "2026-10-13T18:54:33.457403+00:00",
       "hf_revision": "9a341cd1b679d3efd23b46e847b01745a71ed792",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "nominal_parameters_b": 1.8
+      "nominal_parameters_b": 1.8,
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "tencent/hy-mt2-7b",
@@ -1280,11 +1299,11 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:20.884056+00:00",
+      "verified_at": "2026-10-13T18:54:34.769352+00:00",
       "hf_revision": "9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen tilladt vestlig udbyder med verificerbar tekstpris",
-      "nominal_parameters_b": 7.0
+      "nominal_parameters_b": 7.0,
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:TinyLlama/TinyLlama-1.1B-Chat-v1.0",
@@ -1294,14 +1313,17 @@
       "hf_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
-      "availability": "unavailable",
+      "availability": "unpriced",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.684231+00:00",
+      "verified_at": "2026-10-13T18:54:35.040154+00:00",
       "hf_revision": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris",
+      "live_providers": [
+        "featherless-ai"
+      ]
     },
     {
       "id": "hf:01-ai/Yi-1.5-6B-Chat",
@@ -1315,10 +1337,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/01-ai/Yi-1.5-6B-Chat",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:28.923258+00:00",
+      "verified_at": "2026-10-13T18:54:35.232812+00:00",
       "hf_revision": "771924d1c83d67527d665913415d7086f11ea9c0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     },
     {
       "id": "hf:01-ai/Yi-1.5-9B-Chat",
@@ -1332,10 +1354,10 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat",
       "gated": false,
-      "verified_at": "2026-10-09T09:34:29.046231+00:00",
+      "verified_at": "2026-10-13T18:54:35.655878+00:00",
       "hf_revision": "1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
-      "reason": "Ingen aktuel OpenRouter-rute til disse vægte"
+      "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
     }
   ],
   "excluded": [
@@ -2104,8 +2126,13 @@
     {
       "name": "Hugging Face modelkort og vægtmetadata",
       "url": "https://huggingface.co/models"
+    },
+    {
+      "name": "Hugging Face router: aktive udbydere og priser",
+      "url": "https://router.huggingface.co/v1/models"
     }
   ],
   "hosted_catalog_count": 469,
-  "max_nominal_parameters_b": 9
+  "max_nominal_parameters_b": 9,
+  "service": "huggingface"
 }

@@ -29,3 +29,11 @@ OpenRouter er valgt for fælles adgang, **ikke som bevist billigst**. Top-up-geb
 Ukendte licenser, gamle/uklare modelkort og manglende vægtmetadata godkendes ikke automatisk. Store MoE-modeller udelades på totalstørrelse. Community-finetunes uden entydig downloadidentitet dokumenteres som udeladelser.
 
 Fuld måling af alle downloadbare modeller kræver flere hosted endpoints eller GPUkørsel med et særskilt overslag. Det er ikke etableret her. Siden gør derfor ikke en udtømmende påstand om alle små modeller på internettet.
+
+## Opdatering 13. oktober 2026: Hugging Face + direkte OpenAI
+
+Brugeren har valgt Hugging Face til fortællingerne og direkte OpenAI GPT-5 mini som dommer. OpenRouter er en valgfri ældre backend. En offentlig katalogforespørgsel gennem GitHub bekræfter Hugging Face-adgang med den tilføjede HF-token; OpenAI-nøglen var tom i workflowets miljø og skal være et repository secret med præcis navnet `OPENAI_API_KEY`. Ingen betalte kald er udført ved denne kontrol.
+
+Katalogstatus og budgetmæssig køreklarhed er forskellige. Mange modeller har `live` i modelkortets `inferenceProviderMapping`, men mangler priser i `https://router.huggingface.co/v1/models`, især dynamiske Featherless-ruter. De mærkes `unpriced`; runneren opfinder ingen rate og kører dem ikke inden for et ubekræftet budget. Modeller med publicerede input-/outputpriser køres med en konkret `model:provider`-rute. Priserne er USD pr. million tokens og konverteres før budgetreservation. Modelkortets kanoniske identitet bruges til at finde ruten; gamle Llama-aliaser deduplikeres.
+
+Direkte GPT-5 mini bruger `max_completion_tokens=2048`, `reasoning_effort=minimal` og JSON-output, uden temperatur. Konservativt forbrug beregnes ud fra rapporterede input- og outputtokens (inklusive reasoning) × de publicerede standardrater. Cache-rabatter ignoreres; fakturaer er ikke verificeret. Både HF og OpenAI debiteres samme budget, og timeouts beholder reservationen.

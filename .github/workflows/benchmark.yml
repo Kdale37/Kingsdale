@@ -10,6 +10,13 @@ on:
         description: Conservative planning exchange rate, not a live quotation
         default: '8'
         required: true
+      models:
+        description: Optional comma-separated model IDs for a pilot (empty runs all price-verified models)
+        default: ''
+      retry_failed:
+        description: Retry failed samples only after correcting prerequisites and checking billing
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,21 +39,35 @@ jobs:
           python-version: '3.12'
       - name: Check credential presence without revealing it
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python3 - <<'PY'
           import os,sys
-          if not os.environ.get('OPENROUTER_API_KEY'):
-              sys.exit('Add OPENROUTER_API_KEY to repository Actions secrets first.')
+          missing = [name for name in ('HF_TOKEN','OPENAI_API_KEY') if not os.environ.get(name)]
+          if missing:
+              sys.exit('Missing repository secrets: ' + ', '.join(missing))
           PY
       - name: Update catalogue and run or resume
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BENCH_BUDGET: ${{ inputs.budget_dkk }}
           BENCH_RATE: ${{ inputs.usd_dkk_rate }}
+          BENCH_MODELS: ${{ inputs.models }}
+          BENCH_RETRY: ${{ inputs.retry_failed }}
         run: |
-          python3 scripts/benchmark.py catalog
-          python3 scripts/benchmark.py run --budget-dkk "$BENCH_BUDGET" --usd-dkk-rate "$BENCH_RATE"
+          python3 scripts/benchmark.py catalog --backend huggingface
+          python3 - <<'PY'
+          import os, subprocess
+          command = ['python3','scripts/benchmark.py','run','--backend','huggingface',
+                     '--budget-dkk',os.environ['BENCH_BUDGET'],'--usd-dkk-rate',os.environ['BENCH_RATE']]
+          if os.environ.get('BENCH_MODELS'):
+              command += ['--models', os.environ['BENCH_MODELS']]
+          if os.environ.get('BENCH_RETRY') == 'true':
+              command += ['--retry-failed']
+          subprocess.run(command, check=True)
+          PY
       - name: Preserve results and spending reservations even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

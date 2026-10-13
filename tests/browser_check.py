@@ -31,11 +31,15 @@ with sync_playwright() as p:
  page.locator('#search').fill('alpha');assert page.locator('#ranking-table').is_visible()
  page.locator('#size').select_option('large');assert page.locator('#ranking-empty').is_visible()
  page.locator('nav a[href="#method"]').click();assert page.url.endswith('#method')
- results['runs'][0]['status']='judge_failed'; results['runs'][0].pop('evaluation'); results['budget']={'spent_usd':'0.25','reserved_usd':'0.50','usd_dkk_rate':8,'limit_dkk':100};results['status']='partial'
+ results['runs'][0]['status']='judge_failed'; results['runs'][0].pop('evaluation'); results['budget']={'spent_usd':'0.25','reserved_usd':'0.50','usd_dkk_rate':8,'limit_dkk':100};results['status']='partial';results['budget']['cost_basis']='quoted_token_upper_bound';catalog['models'][0]['availability']='unpriced';catalog['models'][0]['reason']='Tokenpris mangler i offentlig prisliste'
  page.reload();page.wait_for_function("document.querySelector('#spent').textContent==='2 kr.'")
  assert page.locator('#ranking-empty').is_visible()
  assert page.locator('#story-text').inner_text()==story
  assert '4 kr.' in page.locator('#budget-note').inner_text()
+ assert 'Aktiv API-rute · pris afventer verificering' in page.locator('#catalog-list').inner_text()
+ assert 'Tokenpris mangler i offentlig prisliste' in page.locator('#catalog-list').inner_text()
+ assert 'ikke verificeret mod en faktura' in page.locator('#budget-note').inner_text()
+ assert 'Beregnet forbrug' in page.locator('#spent-label').inner_text()
  assert 'ingen gyldig dommervurdering' in page.locator('#explanation').inner_text()
  assert not errors,errors
  browser.close()

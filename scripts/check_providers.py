@@ -1,14 +1,37 @@
 """Read-only service checks and public HF routing/price snapshot. Never prints keys."""
 import os
 import sys
+import re
+import urllib.request
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import benchmark as b
 
 
+def price_references():
+    """Read public pricing text without authentication; never infer undocumented rates."""
+    references = []
+    for url in ('https://featherless.ai/pricing', 'https://developers.openai.com/api/docs/models/gpt-5-mini'):
+        try:
+            request = urllib.request.Request(url, headers={'User-Agent': 'Kingsdale-Benchmark/1.0'})
+            with urllib.request.urlopen(request, timeout=20) as response:
+                html = response.read().decode('utf-8')
+            html = re.sub(r'<(script|style)\b[^>]*>.*?</\1>', '', html, flags=re.S | re.I)
+            plain = re.sub(r'\s+', ' ', re.sub('<[^>]+>', ' ', html))
+            snippets = [plain[max(0, match.start()-140):match.end()+300]
+                        for match in list(re.finditer(r'\$\s*\d+(?:\.\d+)?|Hugging Face|million tokens', plain))[:20]]
+            references.append({'url': url, 'status': 'read', 'snippets': snippets})
+        except Exception:
+            references.append({'url': url, 'status': 'unavailable'})
+    b.write_json(b.ROOT / 'data/provider-price-references.json', {'checked_at': b.now(), 'references': references})
+
+
 def main():
+    price_references()
     if not os.environ.get('HF_TOKEN'):
         raise b.SetupError('HF_TOKEN is missing from repository secrets')
+    # Validate authentication; discard identity response instead of logging/saving it.
+    b.request_json('https://huggingface.co/api/whoami-v2', key=os.environ['HF_TOKEN'])
     catalog = b.read_json(b.ROOT / 'data/catalog.json')
     identities = {m['hf_id'] for m in catalog['models'] if m.get('hf_id')}
     models = b.request_json('https://router.huggingface.co/v1/models', key=os.environ['HF_TOKEN'])
@@ -19,7 +42,7 @@ def main():
     if not selected:
         raise b.SetupError('No candidate weight identities matched the HF router catalogue')
     snapshot = {'schema_version': 1, 'checked_at': b.now(), 'source': 'https://router.huggingface.co/v1/models',
-                'judge_access': None, 'models': selected}
+                'judge_access': None, 'models': rows}
     b.write_json(b.ROOT / 'data/hf-pricing-snapshot.json', snapshot)
     if not os.environ.get('OPENAI_API_KEY'):
         raise b.SetupError('OPENAI_API_KEY is missing from repository secrets')

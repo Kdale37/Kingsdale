@@ -6,7 +6,7 @@ Denne opgave bygges af **GPT-6.1-sol med lav ræsonnementsindsats**. Læs vejled
 
 Lav en dansk, offentlig GitHub Pages-side, der sammenligner små modeller med åbne vægte på en cirka 200 ord lang fortælling om at være ung i Danmark i 1980'erne. Modeller markedsført op til cirka 9B er kandidater; tillad højst 10B faktiske **samlede** parametre for embeddings, billeddele og afrunding. Store MoE-modeller udelades på totalstørrelse. Download og tilladt finjustering skal verificeres før kørsel. Modeller med særlige licenser er tilladt, men må ikke kaldes OSI-open-source uden belæg. Kinesiske modeludviklere er tilladt; den fælles API og valgte inferenceoperatører skal være vestlige.
 
-Der findes ikke en endelig liste over alle community-finetunes. Vis derfor dato, afgrænsning, kandidater, tilgængelige modeller og udeladelser. Kald ikke en foreløbig liste udtømmende. Katalogopdateringen skal finde alle relevante små modeller i OpenRouters aktuelle katalog og beholde kendte lokale kandidater, også når de ikke kan køres dér. Små MoE-aktivtal må ikke forveksles med totalstørrelse. Kataloget viser både nominel grænse 9B og faktisk grænse 10B.
+Der findes ikke en endelig liste over alle community-finetunes. Vis derfor dato, afgrænsning, kandidater, tilgængelige modeller og udeladelser. Kald ikke en foreløbig liste udtømmende. Katalogopdateringen skal finde alle relevante små modeller i Hugging Faces aktuelle katalog og beholde kendte lokale kandidater, også når de ikke kan køres dér. Små MoE-aktivtal må ikke forveksles med totalstørrelse. Kataloget viser både nominel grænse 9B og faktisk grænse 10B.
 
 ## Trin 1: Statisk hjemmeside
 
@@ -27,7 +27,7 @@ Initialt findes **ingen rigtige målinger**. Vis et nyttigt, ærligt tomt stadie
 
 Læs `data/catalog.json` og `data/results.json` med `fetch` og håndtér fejl synligt. Alle eksterne tekster skal sættes med `textContent`, aldrig rå `innerHTML`. Tillad kun HTTPS i modelkort/kildelinks. UI må ikke indeholde nøgler, rå API-fejl eller interne driftsinstruktioner.
 
-Katalog: `{schema_version, checked_at, status, max_parameters_b, models, excluded, sources}`. Model: `{id, name, family, parameters_b, hf_id, license, license_status, availability, eligibility, source_url}`. Manglende felter vises som "Ikke verificeret". `availability` er `available`, `unavailable` eller `unverified`; `eligibility` er `eligible`, `candidate` eller `excluded`.
+Katalog: `{schema_version, checked_at, status, max_parameters_b, models, excluded, sources}`. Model: `{id, name, family, parameters_b, hf_id, license, license_status, availability, eligibility, source_url}`. Manglende felter vises som "Ikke verificeret". `availability` er `available`, `unpriced`, `unavailable` eller `unverified`; `eligibility` er `eligible`, `candidate` eller `excluded`.
 
 Resultater: `{schema_version, status, generated_at, judge_model, prompt, repetitions, budget, runs}`. Budget: `{limit_dkk, usd_dkk_rate, spent_usd, reserved_usd}`. En prøve: `{id, model_id, repeat, status, story, word_count, finish_reason, generation, evaluation, error}`. `generation` indeholder kun offentlige metadata (model/provider, tokens, USD, tidspunkt). `evaluation`: `{grammar, naturalness, narrative, period, explanation, examples}` med fire heltal 1–5. `explanation` er dansk tekst; `examples` er en liste af konkrete danske kommentarer. Status `complete` kræver en gyldig dommervurdering; kun komplette prøver tæller i ranglisten. Sprogscore = gennemsnit af grammar og naturalness. Saml modelscore ved lige vægt pr. prøve. Vis antal og standardafvigelse og markér mindre end tre prøver som foreløbigt. Ordgrænse er et separat, objektivt mål.
 
@@ -38,3 +38,7 @@ Kontrollér med en lokal HTTP-server fra repositoryroden, at data kan hentes, to
 ## Arbejdsdeling
 
 Den mindre model implementerer **kun** frontendfilerne og eventuelle frontendtests. Hovedagenten skriver katalog, benchmarkrunner, Python-tests, dokumentation og GitHub Actions. Redigér ikke hinandens filer. Send hovedagenten en kort liste over filer, antagelser og testresultater. Ingen commits, pushes eller eksterne publikationer fra underagenten.
+
+## Tjenester efter 13. oktober 2026
+
+Standardbackend: Hugging Face-generering (`HF_TOKEN`) og direkte OpenAI GPT-5 mini-vurdering (`OPENAI_API_KEY`), med samme budget. `unpriced` betyder aktiv rute, men ingen verificerbar tokenpris; vis det særskilt fra en manglende rute. `budget.cost_basis=quoted_token_upper_bound` betyder rapporterede tokens gange publicerede rater uden cache-rabat; vis beregnet omkostning og reservationer, aldrig en påstået verificeret faktura. Begge nøgler er GitHub repository secrets og må ikke vises i frontend.
