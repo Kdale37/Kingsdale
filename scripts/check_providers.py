@@ -11,7 +11,10 @@ import benchmark as b
 def price_references():
     """Read public pricing text without authentication; never infer undocumented rates."""
     references = []
-    for url in ('https://featherless.ai/pricing', 'https://developers.openai.com/api/docs/models/gpt-5-mini'):
+    for url in ('https://featherless.ai/pricing',
+                'https://featherless.ai/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B',
+                'https://featherless.ai/models/Qwen/Qwen3-4B',
+                'https://developers.openai.com/api/docs/models/gpt-5-mini'):
         try:
             request = urllib.request.Request(url, headers={'User-Agent': 'Kingsdale-Benchmark/1.0'})
             with urllib.request.urlopen(request, timeout=20) as response:

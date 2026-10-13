@@ -2,7 +2,7 @@
 
 En dansk GitHub Pages-side med et benchmark af små modeller med åbne vægte: tre fortællinger pr. model om at være ung i Danmark i 1980'erne, vurderet anonymt af en billig dommermodel.
 
-**Status:** Siden og benchmarkværktøjet er implementeret. Katalog, størrelser, licensmetadata og aktuelle hosted ruter er undersøgt. Der er endnu **ingen betalte målinger**, ingen opdigtede tekster og ingen rangering. Kinesiske udviklere, herunder Qwen og DeepSeek, er med i undersøgelsen.
+**Status:** Siden og benchmarkværktøjet er implementeret og testet. `data/results.json` angiver den aktuelle kørselsstatus; kun komplette vurderede prøver rangeres. Kinesiske udviklere, herunder Qwen og DeepSeek, er med i undersøgelsen.
 
 ## Lokal udvikling
 
@@ -67,3 +67,5 @@ Hvis Python Playwright og Chromium er tilgængelige: `python3 tests/browser_chec
 [Byggevejledning til den mindre model](docs/BUILD_GUIDE.md) · [Tjenester, priser og modeldækning](docs/RESEARCH.md)
 
 Den tidligere OpenRouter-backend bevares til eksplicit brug med `--backend openrouter`; standarden `huggingface` kræver kun HF- og OpenAI-nøglerne. Hvis en forudsætning er rettet, kan `--retry-failed` bruges eksplicit efter kontrol af faktiske omkostninger. Den bevarer tidligere forsøg og hele forbrugsregnskabet. Feltet `models` i workflowet kan afgrænse en pilot; tomt felt kører alle prisverificerede modeller.
+
+Workflowets `generation_only` (CLI `--generation-only`) kan kontrollere HF-generering og gemme tekster, mens dommernøglen rettes. Det kræver kun HF-tokenen og bruger samme budget. Teksterne vises som afventende uden karakterer; en normal efterfølgende kørsel genbruger dem og betaler kun for dommervurderingen.

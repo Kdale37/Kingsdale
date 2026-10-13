@@ -406,6 +406,7 @@ def run(args, api=request_json):
         if not 0 < args.budget_dkk <= 100 or not 0 < args.usd_dkk_rate <= 100:
             raise SetupError('Budget skal være over 0 og højst 100 DKK; kurs skal være positiv')
         use_hf = getattr(args, 'backend', 'openrouter') == 'huggingface'
+        generation_only = getattr(args, 'generation_only', False)
         models = [m for m in catalog['models'] if m.get('availability') == 'available' and m.get('eligibility') == 'eligible'
                   and (not use_hf or m.get('route', {}).get('service') == 'huggingface')]
         if args.models:
@@ -423,7 +424,7 @@ def run(args, api=request_json):
         if use_hf:
             import hf_openai
             key, judge_key = os.environ.get('HF_TOKEN'), os.environ.get('OPENAI_API_KEY') or os.environ.get('BENCHMARK_JUDGE_KEY')
-            if not key or not judge_key:
+            if not key or (not judge_key and not generation_only):
                 raise SetupError('HF_TOKEN og OPENAI_API_KEY skal være tilføjet som repository secrets')
             judge = {'id': 'gpt-5-mini'}
             judge_route = dict(hf_openai.JUDGE_ROUTE)
@@ -495,6 +496,12 @@ def run(args, api=request_json):
                     save()
                     if finish != 'stop':
                         raise SetupError('Fortællingen blev afbrudt eller afsluttet uden stop-signal')
+                if generation_only:
+                    results['status'] = 'awaiting_judge'
+                    results['generated_at'] = now()
+                    save()
+                    print(f'{model["id"]} prøve {repeat}: generated; afventer dommer')
+                    continue
                 phase = 'judge'
                 messages = [{'role': 'system', 'content': RUBRIC},
                             {'role': 'user', 'content': json.dumps({'text': row['story']}, ensure_ascii=False)}]
@@ -535,10 +542,13 @@ def run(args, api=request_json):
         if not halted:
             selected = {model['id'] for model in models}
             complete = sum(r['status'] == 'complete' and r['model_id'] in selected for r in results['runs'])
-            results['status'] = 'complete' if complete == len(jobs) else 'partial'
+            generated = sum(r['model_id'] in selected and r.get('finish_reason') == 'stop'
+                            and r['status'] in ('generated', 'complete') for r in results['runs'])
+            results['status'] = ('awaiting_judge' if generation_only and generated == len(jobs) else
+                                 'complete' if complete == len(jobs) else 'partial')
             results['generated_at'] = now()
             save()
-        if results['status'] != 'complete':
+        if results['status'] != 'complete' and not (generation_only and results['status'] == 'awaiting_judge'):
             raise SetupError(f'Kørslen er {results["status"]}; resultater og reservationer er bevaret')
 
 
@@ -581,6 +591,7 @@ def main():
     runner.add_argument('--usd-dkk-rate', type=float, default=8)
     runner.add_argument('--dry-run', action='store_true')
     runner.add_argument('--retry-failed', action='store_true', help='Explicitly retry known failures after correcting prerequisites; retains costs and attempt history')
+    runner.add_argument('--generation-only', action='store_true', help='Generate and checkpoint stories; leaves ranking empty until judged')
     validation = sub.add_parser('validate')
     validation.add_argument('--catalog', default=str(ROOT / 'data/catalog.json'))
     validation.add_argument('--results', default=str(ROOT / 'data/results.json'))

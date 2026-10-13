@@ -17,6 +17,10 @@ on:
         description: Retry failed samples only after correcting prerequisites and checking billing
         type: boolean
         default: false
+      generation_only:
+        description: Generate and checkpoint stories while judge credentials are being corrected
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -41,10 +45,12 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          BENCH_GENERATION_ONLY: ${{ inputs.generation_only }}
         run: |
           python3 - <<'PY'
           import os,sys
-          missing = [name for name in ('HF_TOKEN','OPENAI_API_KEY') if not os.environ.get(name)]
+          required = ['HF_TOKEN'] if os.environ.get('BENCH_GENERATION_ONLY') == 'true' else ['HF_TOKEN','OPENAI_API_KEY']
+          missing = [name for name in required if not os.environ.get(name)]
           if missing:
               sys.exit('Missing repository secrets: ' + ', '.join(missing))
           PY
@@ -56,6 +62,7 @@ jobs:
           BENCH_RATE: ${{ inputs.usd_dkk_rate }}
           BENCH_MODELS: ${{ inputs.models }}
           BENCH_RETRY: ${{ inputs.retry_failed }}
+          BENCH_GENERATION_ONLY: ${{ inputs.generation_only }}
         run: |
           python3 scripts/benchmark.py catalog --backend huggingface
           python3 - <<'PY'
@@ -66,6 +73,8 @@ jobs:
               command += ['--models', os.environ['BENCH_MODELS']]
           if os.environ.get('BENCH_RETRY') == 'true':
               command += ['--retry-failed']
+          if os.environ.get('BENCH_GENERATION_ONLY') == 'true':
+              command += ['--generation-only']
           subprocess.run(command, check=True)
           PY
       - name: Preserve results and spending reservations even on failure

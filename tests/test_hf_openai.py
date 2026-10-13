@@ -19,6 +19,30 @@ def entry(identity='test/model-3B'):
 
 
 class ProviderTests(unittest.TestCase):
+    def test_generation_only_checks_hf_without_spending_on_a_missing_judge(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            cat, results = Path(tmp) / 'catalog.json', Path(tmp) / 'results.json'
+            b.write_json(cat, {'checked_at': b.now(), 'models': [
+                {'id': 'model', 'availability': 'available', 'eligibility': 'eligible', 'route': hf.quote(entry())}]})
+            b.write_json(results, {'repetitions': 3, 'prompt': 'Skriv 200 ord på dansk.',
+                                 'judge_model': None, 'runs': [], 'budget': {'spent_usd': 0, 'reserved_usd': 0}})
+            args = SimpleNamespace(catalog=str(cat), results=str(results), models=None, backend='huggingface',
+                                   budget_dkk=100, usd_dkk_rate=8, repetitions=3, dry_run=False,
+                                   judge=None, generation_only=True)
+            calls = []
+            def api(url, payload=None, key=None):
+                self.assertEqual(url, hf.HF_CHAT)
+                calls.append(payload)
+                return {'usage': {'prompt_tokens': 100, 'completion_tokens': 200},
+                        'choices': [{'finish_reason': 'stop', 'message': {'content': ' '.join(['dansk'] * 200)}}]}
+            with patch.dict(os.environ, {'HF_TOKEN': 'fixture-only'}):
+                b.run(args, api)
+            value = b.read_json(results)
+            self.assertEqual(len(calls), 3)
+            self.assertEqual(value['status'], 'awaiting_judge')
+            self.assertTrue(all(row['status'] == 'generated' and row.get('evaluation') is None for row in value['runs']))
+            self.assertGreater(b.dec(value['budget']['spent_usd']), 0)
+
     def test_quotes_convert_million_token_rates_and_refuse_missing_prices(self):
         route = hf.quote(entry())
         self.assertEqual(b.dec(route['prompt']), b.dec('.0000001'))
