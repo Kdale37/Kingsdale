@@ -1,0 +1,6 @@
+{
+  "status": "blocked",
+  "checked_at": "2026-10-13T18:36:55.931745+00:00",
+  "error": "OPENAI_API_KEY is missing from repository secrets",
+  "paid_calls": 0
+}
