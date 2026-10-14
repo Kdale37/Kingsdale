@@ -107,6 +107,10 @@ class ProviderTests(unittest.TestCase):
                 self.assertNotIn('provider', payload)
                 if judging:
                     self.assertNotIn('test/model', str(payload['messages']))
+                    self.assertEqual(payload['response_format']['type'], 'json_schema')
+                    schema = payload['response_format']['json_schema']
+                    self.assertTrue(schema['strict'])
+                    self.assertEqual(schema['schema']['properties']['examples']['items']['type'], 'string')
                 evaluation = {'grammar': 4, 'naturalness': 4, 'narrative': 3, 'period': 4,
                               'explanation': 'Klar dansk tekst.', 'examples': ['En konkret kommentar.']}
                 return {'model': payload['model'], 'id': 'fixture-id',
@@ -120,6 +124,8 @@ class ProviderTests(unittest.TestCase):
             self.assertEqual(len(calls), 6)
             self.assertEqual(value['status'], 'complete')
             self.assertEqual(value['judge_model'], 'gpt-5-mini')
+            for row in value['runs']:
+                self.assertEqual(json.loads(row['judge_response']), row['evaluation'])
             self.assertEqual(value['budget']['cost_basis'], 'quoted_token_upper_bound')
             self.assertEqual(b.dec(value['budget']['reserved_usd']), 0)
             self.assertNotIn('judge-fixture', results.read_text())

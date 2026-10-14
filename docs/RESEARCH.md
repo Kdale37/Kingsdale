@@ -40,6 +40,8 @@ Direkte GPT-5 mini bruger `max_completion_tokens=2048`, `reasoning_effort=minima
 
 ## Opdatering 14. oktober 2026
 
+Pilotkørslen viste, at almindelig JSON-mode ikke håndhævede formatet for dommerens eksempler. Direkte GPT-5 mini bruger nu [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=chat) med et strengt JSON-schema: fire heltal fra 1 til 5, en begrundelse og 1–3 tekststrenge med eksempler. Dommer, rubric og originale fortællinger ændres ikke. Rå dommertekst gemmes fremover sammen med tokenforbrug, også når validering fejler. De tidligere afviste dommersvar blev ikke gemt og kan ikke rekonstrueres; deres omkostninger bevares. Ved genoptagelse bedømmes de gemte historier uden ny generering.
+
 Den læsende provider-kontrol bestod med begge repository secrets og adgang til GPT-5 mini. GitHub Pages er aktiveret, og første publicering er gennemført. Den tidligere HF-fejl med HTTP 402 og dens reservation forbliver i regnskabet ved genoptagelse.
 
 [Hugging Faces prisvejledning](https://huggingface.co/docs/inference-providers/pricing) beskriver central afregning af routede kald. [Featherless' prisside](https://featherless.ai/pricing) dokumenterer abonnementer, men er ikke tilstrækkelig dokumentation for hver models input-/outputrate gennem HF. Aktive ruter uden modeltilknyttet tokenpris forbliver derfor `unpriced`; abonnementspriser omregnes ikke til opdigtede tokenpriser.

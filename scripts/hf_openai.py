@@ -136,8 +136,17 @@ def generation_payload(model, messages, route):
 
 
 def judge_payload(messages):
+    schema = {'type': 'object', 'additionalProperties': False,
+              'properties': {
+                  **{key: {'type': 'integer', 'enum': [1, 2, 3, 4, 5]} for key in b.SCORES},
+                  'explanation': {'type': 'string'},
+                  'examples': {'type': 'array', 'minItems': 1, 'maxItems': 3,
+                               'items': {'type': 'string'}}},
+              'required': [*b.SCORES, 'explanation', 'examples']}
     return {'model': 'gpt-5-mini', 'messages': messages, 'max_completion_tokens': 2048,
-            'reasoning_effort': 'minimal', 'response_format': {'type': 'json_object'}}
+            'reasoning_effort': 'minimal',
+            'response_format': {'type': 'json_schema', 'json_schema': {
+                'name': 'danish_writing_evaluation', 'strict': True, 'schema': schema}}}
 
 
 def cost_from_tokens(usage, route):

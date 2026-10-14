@@ -312,7 +312,7 @@ def make_payload(model_id, messages, route, max_tokens, parameters=(), judge=Fal
 
 def price_bound(payload, route):
     # UTF-8 bytes upper-bound ordinary BPE input tokens; large framing reserve.
-    input_bound = len(json.dumps(payload['messages'], ensure_ascii=False).encode('utf-8')) + 4096
+    input_bound = len(json.dumps(payload, ensure_ascii=False).encode('utf-8')) + 4096
     output_bound = payload.get('max_tokens', payload.get('max_completion_tokens'))
     if type(output_bound) is not int or output_bound <= 0:
         raise SetupError('Output-tokenloft mangler')
@@ -544,6 +544,7 @@ def run(args, api=request_json):
                 save()
                 text, finish, meta = paid_call(payload, judge_route, budget, judge_key, api)
                 row['judge_usage'] = meta
+                row['judge_response'] = text
                 if finish != 'stop':
                     raise SetupError('Dommerens vurdering blev afbrudt')
                 try:
