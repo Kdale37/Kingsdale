@@ -75,7 +75,7 @@ if (typeof document !== 'undefined') {
     if (!$('sources').childNodes.length) $('sources').append(element('li','Ingen verificerede kildelinks tilgængelige.'));
   }
   ['search','family','size','sort'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change',renderRanking)); $('run-select').addEventListener('change',renderStory);
-  async function fetchData(path) { const response = await fetch(path); if (!response.ok) throw new Error('Data unavailable'); const data = await response.json(); if (data.schema_version !== 1) throw new Error('Unsupported schema'); return data; }
+  async function fetchData(path) { const response = await fetch(path, {cache: 'no-store'}); if (!response.ok) throw new Error('Data unavailable'); const data = await response.json(); if (data.schema_version !== 1) throw new Error('Unsupported schema'); return data; }
   Promise.allSettled([fetchData('data/catalog.json'),fetchData('data/results.json')]).then(items => {
     const warnings = [];
     if (items[0].status === 'fulfilled' && Array.isArray(items[0].value.models)) catalog = items[0].value; else warnings.push('Kataloget kunne ikke hentes eller læses.');
