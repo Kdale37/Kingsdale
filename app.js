@@ -10,7 +10,7 @@ const Bench = (() => {
       const samples = runs.filter(run => run.model_id === model.id && validRun(run));
       if (!samples.length) return null;
       const values = samples.map(language), mean = average(values);
-      return {model, count: samples.length, language: mean, narrative: average(samples.map(run => run.evaluation.narrative)), period: average(samples.map(run => run.evaluation.period)), deviation: Math.sqrt(average(values.map(value => (value - mean) ** 2)))};
+      return {model, count: samples.length, uniqueStories: new Set(samples.map(run => run.story)).size, language: mean, narrative: average(samples.map(run => run.evaluation.narrative)), period: average(samples.map(run => run.evaluation.period)), deviation: Math.sqrt(average(values.map(value => (value - mean) ** 2)))};
     }).filter(Boolean);
   }
   function safeURL(value) { try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; } catch { return null; } }
@@ -32,7 +32,7 @@ if (typeof document !== 'undefined') {
     const rows = ranked.filter(row => (!query || `${row.model.name} ${row.model.family}`.toLocaleLowerCase('da').includes(query)) && (!family || row.model.family === family) && (!size || Bench.finite(row.model.parameters_b) && (size === 'small' ? row.model.parameters_b <= 3 : row.model.parameters_b > 3 && row.model.parameters_b <= 10)));
     rows.sort((a,b) => sort === 'name' ? String(a.model.name).localeCompare(String(b.model.name), 'da') : b[sort] - a[sort] || String(a.model.name).localeCompare(String(b.model.name), 'da'));
     $('rankings').replaceChildren();
-    rows.forEach(row => { const tr = element('tr'), name = element('td'); name.append(element('strong', row.model.name || row.model.id)); if (row.count < 3) name.append(element('span','Foreløbigt','badge')); tr.append(name); [row.language,row.narrative,row.period].forEach(value => tr.append(element('td',format(value)))); tr.append(element('td',String(row.count)),element('td',format(row.deviation))); $('rankings').append(tr); });
+    rows.forEach(row => { const tr = element('tr'), name = element('td'); name.append(element('strong', row.model.name || row.model.id)); if (row.count < 3) name.append(element('span','Foreløbigt','badge')); if (row.uniqueStories < row.count) name.append(element('span',`${row.uniqueStories} unik tekst · ${row.count} prøver · gentagne tekster`,'badge')); tr.append(name); [row.language,row.narrative,row.period].forEach(value => tr.append(element('td',format(value)))); tr.append(element('td',String(row.count)),element('td',format(row.deviation))); $('rankings').append(tr); });
     $('ranking-table').hidden = rows.length === 0; $('ranking-empty').hidden = rows.length > 0;
     set('ranking-empty', ranked.length ? 'Ingen målte modeller matcher dine filtre.' : 'Ingen placeringer endnu. De første verificerede målinger vil blive vist her.');
   }
