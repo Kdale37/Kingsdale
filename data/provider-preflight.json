@@ -1,6 +1,7 @@
 {
-  "status": "blocked",
-  "checked_at": "2026-10-13T19:04:54.218168+00:00",
-  "error": "OPENAI_API_KEY is missing from repository secrets",
+  "status": "passed",
+  "checked_at": "2026-10-14T18:19:35.070994+00:00",
+  "hf_catalog_entries": 7,
+  "judge_access": "gpt-5-mini",
   "paid_calls": 0
 }

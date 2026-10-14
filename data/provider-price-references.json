@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-13T19:04:53.971775+00:00",
+  "checked_at": "2026-10-14T18:19:34.356421+00:00",
   "references": [
     {
       "url": "https://featherless.ai/pricing",
@@ -11,6 +11,26 @@
         "ing, app/API traffic, background automation, or benchmarking. Misuse may lead to cancellation without refund. Every spec, side by side Chat $25/mo Developer from $50/mo Business Custom Price &amp; billing Billing model Flat rate fixed cost Billed per token Contract Credits expire Never One-time top-ups Yes Commitment None None Custom Limits Context window 32K up to 256K As Requested Concurrent units 4 100 Sized to your GPUs Token volume Un",
         "background automation, or benchmarking. Misuse may lead to cancellation without refund. Every spec, side by side Chat $25/mo Developer from $50/mo Business Custom Price &amp; billing Billing model Flat rate fixed cost Billed per token Contract Credits expire Never One-time top-ups Yes Commitment None None Custom Limits Context window 32K up to 256K As Requested Concurrent units 4 100 Sized to your GPUs Token volume Unlimited Metered per to",
         "failed request costs nothing. Credit moves only when a response comes back. Rates are per model Input and output are priced separately, per million tokens. A 7B model costs a fraction of a 700B one. Nothing expires Unused credit carries into the next cycle, and the one after that. Top up any time Add a one-off amount from Billing whenever you like. See prices on the models page FAQ Common questions What counts as human-driven use? + Back-and-forth be"
+      ]
+    },
+    {
+      "url": "https://featherless.ai/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "status": "read",
+      "snippets": [
+        "cing) Models Dedicated GPUs Resources Pricing Cost Calculator Status Log in Sign up Models Qwen 2.5 deepseek-ai/DeepSeek-R1-Distill-Qwen-7B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.68 / Cached $0.136 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 7.6B Quant: FP8 Context Size: 32k Tool Calling: Supported Published: Jan 20, 2025 License: mit Architecture: Transformer 0.9K Open Weights Featherless Exclusive Warm DeepSeek-R1-Distil",
+        "lator Status Log in Sign up Models Qwen 2.5 deepseek-ai/DeepSeek-R1-Distill-Qwen-7B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.68 / Cached $0.136 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 7.6B Quant: FP8 Context Size: 32k Tool Calling: Supported Published: Jan 20, 2025 License: mit Architecture: Transformer 0.9K Open Weights Featherless Exclusive Warm DeepSeek-R1-Distill-Qwen-7B is a 7.6 billion parameter language mod",
+        "g in Sign up Models Qwen 2.5 deepseek-ai/DeepSeek-R1-Distill-Qwen-7B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.68 / Cached $0.136 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 7.6B Quant: FP8 Context Size: 32k Tool Calling: Supported Published: Jan 20, 2025 License: mit Architecture: Transformer 0.9K Open Weights Featherless Exclusive Warm DeepSeek-R1-Distill-Qwen-7B is a 7.6 billion parameter language model developed by ",
+        "els Qwen 2.5 deepseek-ai/DeepSeek-R1-Distill-Qwen-7B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.68 / Cached $0.136 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 7.6B Quant: FP8 Context Size: 32k Tool Calling: Supported Published: Jan 20, 2025 License: mit Architecture: Transformer 0.9K Open Weights Featherless Exclusive Warm DeepSeek-R1-Distill-Qwen-7B is a 7.6 billion parameter language model developed by DeepSeek AI, d"
+      ]
+    },
+    {
+      "url": "https://featherless.ai/models/Qwen/Qwen3-4B",
+      "status": "read",
+      "snippets": [
+        "ployment &amp; Flat-Rate Pricing) Models Dedicated GPUs Resources Pricing Cost Calculator Status Log in Sign up Models Qwen 3 Qwen/Qwen3-4B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.4 / Cached $0.08 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 4B Quant: BF16 Context Size: 32k Tool Calling: Supported Published: Apr 27, 2025 License: apache-2.0 Architecture: Transformer 0.8K Open Weights Featherless Exclusive Warm Qwen/Qwen3-4B ",
+        "Resources Pricing Cost Calculator Status Log in Sign up Models Qwen 3 Qwen/Qwen3-4B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.4 / Cached $0.08 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 4B Quant: BF16 Context Size: 32k Tool Calling: Supported Published: Apr 27, 2025 License: apache-2.0 Architecture: Transformer 0.8K Open Weights Featherless Exclusive Warm Qwen/Qwen3-4B is a 4.0 billion parameter causal language model",
+        "ing Cost Calculator Status Log in Sign up Models Qwen 3 Qwen/Qwen3-4B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.4 / Cached $0.08 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 4B Quant: BF16 Context Size: 32k Tool Calling: Supported Published: Apr 27, 2025 License: apache-2.0 Architecture: Transformer 0.8K Open Weights Featherless Exclusive Warm Qwen/Qwen3-4B is a 4.0 billion parameter causal language model developed by Q",
+        "ator Status Log in Sign up Models Qwen 3 Qwen/Qwen3-4B Hugging Face Use via API TEXT GENERATION Pricing: Input $0.4 / Cached $0.08 / Output $0.8 Concurrent Unit Cost: 1 Model Size: 4B Quant: BF16 Context Size: 32k Tool Calling: Supported Published: Apr 27, 2025 License: apache-2.0 Architecture: Transformer 0.8K Open Weights Featherless Exclusive Warm Qwen/Qwen3-4B is a 4.0 billion parameter causal language model developed by Qwen, part of t"
       ]
     },
     {
