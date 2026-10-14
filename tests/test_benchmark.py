@@ -80,6 +80,17 @@ class BudgetTests(unittest.TestCase):
 
 
 class MetadataTests(unittest.TestCase):
+    def test_partial_tensor_metadata_does_not_certify_nominal_nine_b(self):
+        model = {'hf_id': 'zai-org/AutoGLM-Phone-9B-Multilingual',
+                 'parameters_b': .0009344, 'eligibility': 'eligible',
+                 'license_status': 'verified_metadata'}
+        with self.assertRaisesRegex(b.SetupError, 'manuel verificering'):
+            b.verify_hf(model, lambda url: {'safetensors': {'total': 934400},
+                                          'cardData': {'license': 'mit'}})
+        self.assertEqual(model['eligibility'], 'candidate')
+        self.assertEqual(model['parameters_b'], 9)
+        self.assertEqual(model['license_status'], 'unverified')
+
     def test_moe_and_total_size(self):
         self.assertEqual(b.infer_size('Qwen: Qwen3 8B'), 8)
         self.assertEqual(b.infer_size('test/model-360M'), .36)

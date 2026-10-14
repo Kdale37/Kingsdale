@@ -156,6 +156,14 @@ def verify_hf(model, api=request_json):
     total = info.get('safetensors', {}).get('total')
     if not isinstance(total, int) or isinstance(total, bool) or total <= 0:
         raise SetupError('Samlet parameterantal ikke verificerbart fra vægtmetadata')
+    nominal = model.get('nominal_parameters_b') or infer_size(identity)
+    # A tiny partial tensor index must not certify a much larger weight release.
+    # This is a conservative consistency check, not a replacement size estimate.
+    if nominal and total < nominal * 1_000_000_000 / 2:
+        model['parameters_b'] = nominal
+        model['eligibility'] = 'candidate'
+        model['license_status'] = 'unverified'
+        raise SetupError('Vægtmetadata er langt mindre end den nominelle størrelse; samlet parameterantal kræver manuel verificering')
     model['parameters_b'] = total / 1_000_000_000
     card = info.get('cardData', {})
     license_name = card.get('license')

@@ -1,6 +1,6 @@
 # Tjenestevalg og kilder
 
-Undersøgt 9. oktober 2026. Katalog- og priskontrol er udført; der er endnu ingen betalte modelkald.
+Den oprindelige undersøgelse er fra 9. oktober 2026. Senere opdateringer står nedenfor; aktuelle målinger og budget findes i `data/results.json`.
 
 ## Primære kilder, som er hentet
 
@@ -37,3 +37,11 @@ Brugeren har valgt Hugging Face til fortællingerne og direkte OpenAI GPT-5 mini
 Katalogstatus og budgetmæssig køreklarhed er forskellige. Mange modeller har `live` i modelkortets `inferenceProviderMapping`, men mangler priser i `https://router.huggingface.co/v1/models`, især dynamiske Featherless-ruter. De mærkes `unpriced`; runneren opfinder ingen rate og kører dem ikke inden for et ubekræftet budget. Modeller med publicerede input-/outputpriser køres med en konkret `model:provider`-rute. Priserne er USD pr. million tokens og konverteres før budgetreservation. Modelkortets kanoniske identitet bruges til at finde ruten; gamle Llama-aliaser deduplikeres.
 
 Direkte GPT-5 mini bruger `max_completion_tokens=2048`, `reasoning_effort=minimal` og JSON-output, uden temperatur. Konservativt forbrug beregnes ud fra rapporterede input- og outputtokens (inklusive reasoning) × de publicerede standardrater. Cache-rabatter ignoreres; fakturaer er ikke verificeret. Både HF og OpenAI debiteres samme budget, og timeouts beholder reservationen.
+
+## Opdatering 14. oktober 2026
+
+Den læsende provider-kontrol bestod med begge repository secrets og adgang til GPT-5 mini. GitHub Pages er aktiveret, og første publicering er gennemført. Den tidligere HF-fejl med HTTP 402 og dens reservation forbliver i regnskabet ved genoptagelse.
+
+[Hugging Faces prisvejledning](https://huggingface.co/docs/inference-providers/pricing) beskriver central afregning af routede kald. [Featherless' prisside](https://featherless.ai/pricing) dokumenterer abonnementer, men er ikke tilstrækkelig dokumentation for hver models input-/outputrate gennem HF. Aktive ruter uden modeltilknyttet tokenpris forbliver derfor `unpriced`; abonnementspriser omregnes ikke til opdigtede tokenpriser.
+
+[AutoGLM-Phone-9B-Multilingual](https://huggingface.co/zai-org/AutoGLM-Phone-9B-Multilingual) viser kun 934.400 parametre i safetensors-metadata, mens modelkortet beskriver samme arkitektur som GLM-4.1V-9B-Thinking. Denne uoverensstemmelse kan ikke dokumentere den samlede vægtstørrelse. Runneren kræver nu manuel verificering, hvis metadata angiver under halvdelen af den nominelle størrelse. Det er et konservativt konsistenstjek; det beregner ikke et alternativt faktisk parameterantal. Modellen bevares som kandidat uden betalt kørsel.
