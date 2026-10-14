@@ -19,6 +19,17 @@ def entry(identity='test/model-3B'):
 
 
 class ProviderTests(unittest.TestCase):
+    def test_qwen_uses_verified_alternate_route_without_fallback(self):
+        model = entry('Qwen/Qwen3.5-9B')
+        with self.assertRaises(b.SetupError):
+            hf.quote(model)
+        model['providers'].append({'provider': 'together', 'status': 'live',
+                                   'pricing': {'input': .17, 'output': .25}})
+        self.assertEqual(hf.quote(model)['model'], 'Qwen/Qwen3.5-9B:together')
+        model['providers'][-1]['status'] = 'offline'
+        with self.assertRaises(b.SetupError):
+            hf.quote(model)
+
     def test_generation_only_checks_hf_without_spending_on_a_missing_judge(self):
         with tempfile.TemporaryDirectory() as tmp:
             cat, results = Path(tmp) / 'catalog.json', Path(tmp) / 'results.json'

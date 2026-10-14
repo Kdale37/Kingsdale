@@ -11,6 +11,8 @@ OPENAI_CHAT = 'https://api.openai.com/v1/chat/completions'
 HF_PROVIDERS = {'featherless-ai', 'nscale', 'deepinfra', 'together', 'fireworks-ai',
                 'groq', 'cerebras', 'novita', 'hf-inference', 'scaleway', 'ovhcloud',
                 'publicai', 'nebius', 'sambanova', 'friendli'}
+# Avoid the Qwen route with three unresolved HTTP 504s; no paid fallback/retry.
+HF_PROVIDER_OVERRIDES = {'Qwen/Qwen3.5-9B': 'together'}
 # Published GPT-5 mini standard rates: USD per token, cached-input discounts ignored.
 JUDGE_ROUTE = {'service': 'openai', 'api_url': OPENAI_CHAT, 'model': 'gpt-5-mini',
                'providers': ['OpenAI'], 'prompt': '0.00000025', 'completion': '0.000002',
@@ -21,6 +23,9 @@ JUDGE_ROUTE = {'service': 'openai', 'api_url': OPENAI_CHAT, 'model': 'gpt-5-mini
 def quote(entry):
     candidates = []
     for provider in entry.get('providers', []):
+        preferred = HF_PROVIDER_OVERRIDES.get(entry['id'])
+        if preferred and provider.get('provider') != preferred:
+            continue
         if provider.get('status') != 'live' or provider.get('provider') not in HF_PROVIDERS:
             continue
         pricing = provider.get('pricing', {})
