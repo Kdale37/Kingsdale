@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 import contextlib
 import datetime as dt
+import errno
 from decimal import Decimal, InvalidOperation
-import fcntl
 import hashlib
 import json
 import os
@@ -17,6 +17,11 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+
+if os.name == 'nt':
+    import msvcrt
+else:
+    import fcntl
 
 ROOT = Path(__file__).resolve().parents[1]
 API = 'https://openrouter.ai/api/v1'
@@ -373,12 +378,31 @@ def paid_call(payload, route, budget, key, api=request_json):
 def exclusive_lock(path):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open('a') as handle:
+    with path.open('a+b') as handle:
+        if os.name == 'nt':
+            # Windows locks a byte range; keep one persistent byte in the file.
+            handle.seek(0, os.SEEK_END)
+            if handle.tell() == 0:
+                handle.write(b'\0')
+                handle.flush()
+            handle.seek(0)
         try:
-            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except BlockingIOError:
+            if os.name == 'nt':
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            if exc.errno not in (errno.EAGAIN, errno.EACCES, errno.EDEADLK):
+                raise
             raise SetupError('En benchmarkkørsel bruger allerede budgettet') from None
-        yield
+        try:
+            yield
+        finally:
+            if os.name == 'nt':
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle, fcntl.LOCK_UN)
 
 
 def pick_judge(current, api=request_json, requested=None):
