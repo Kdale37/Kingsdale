@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "partial",
-  "generated_at": "2026-10-14T18:58:04.081263+00:00",
+  "generated_at": "2026-10-14T19:05:41.425998+00:00",
   "judge_model": "gpt-5-mini",
   "prompt": "Skriv en fortælling på dansk på 180–220 ord om, hvordan det var at være ung i Danmark i 1980’erne. Fortæl i jeg-form gennem en konkret scene med sanselige detaljer og et lille handlingsforløb. Gør sproget naturligt og miljøet troværdigt for perioden. Skriv kun selve fortællingen, uden titel, forklaringer eller ordtal.",
   "repetitions": 3,
@@ -9,7 +9,7 @@
     "limit_dkk": 100.0,
     "usd_dkk_rate": 8.0,
     "spent_usd": "0.014709780000000000048621",
-    "reserved_usd": "0.002706400000000000000000",
+    "reserved_usd": "0.003867300000000000000000",
     "accounting_status": "includes_reservations",
     "cost_basis": "quoted_token_upper_bound"
   },
@@ -23,12 +23,12 @@
       "word_count": null,
       "evaluation": null,
       "generation_settings": {
-        "model": "Qwen/Qwen3.5-9B:deepinfra",
+        "model": "Qwen/Qwen3.5-9B:together",
         "max_tokens": 1536,
         "temperature": 0.8,
         "stream": false
       },
-      "error": "HTTP 504 fra router.huggingface.co",
+      "error": "HTTP 402 fra router.huggingface.co",
       "attempt_history": [
         {
           "id": "66a3f5009fc13f47",
@@ -45,6 +45,22 @@
             "stream": false
           },
           "error": "HTTP 402 fra router.huggingface.co"
+        },
+        {
+          "id": "66a3f5009fc13f47",
+          "model_id": "qwen/qwen3.5-9b",
+          "repeat": 3,
+          "status": "generation_failed",
+          "story": null,
+          "word_count": null,
+          "evaluation": null,
+          "generation_settings": {
+            "model": "Qwen/Qwen3.5-9B:deepinfra",
+            "max_tokens": 1536,
+            "temperature": 0.8,
+            "stream": false
+          },
+          "error": "HTTP 504 fra router.huggingface.co"
         }
       ]
     },
@@ -1549,13 +1565,10 @@
     "source_url": "https://developers.openai.com/api/docs/models/gpt-5-mini",
     "price_basis": "published_standard_token_rates"
   },
-  "catalog_checked_at": "2026-10-14T18:56:31.978122+00:00",
+  "catalog_checked_at": "2026-10-14T19:05:41.209329+00:00",
   "backend": "huggingface_openai",
   "planned_model_ids": [
-    "ibm-granite/granite-4.2-8b",
-    "meta-llama/llama-3.1-8b-instruct",
-    "hf:ibm-granite/granite-4.2-3b",
-    "hf:swiss-ai/Apertus-8B-Instruct-2509"
+    "qwen/qwen3.5-9b"
   ],
-  "planned_runs": 12
+  "planned_runs": 3
 }
