@@ -60,13 +60,20 @@ def featherless_quote(identity, api=b.request_json):
             continue
         if b.dec(value) != 0:
             raise b.SetupError('Featherless har ekstra prisfelter uden et verificeret loft')
+    rates = []
     for key, rate in (('input', prompt), ('output', completion)):
-        if key in pricing and b.dec(pricing[key]) / 1_000_000 != rate:
+        display = b.dec(pricing[key]) / 1_000_000 if key in pricing else rate
+        high, low = max(display, rate), min(display, rate)
+        # The per-million display may be rounded; always reserve the higher quote.
+        if high and (not low or high > low * b.dec('1.01')):
             raise b.SetupError('Featherless-prisens enheder er inkonsistente')
+        rates.append(high)
+    prompt, completion = rates
     return {'service': 'huggingface', 'api_url': HF_CHAT,
             'model': identity + ':featherless-ai', 'providers': ['featherless-ai'],
             'prompt': str(prompt), 'completion': str(completion), 'checked_at': b.now(),
             'source_url': url, 'price_basis': 'provider_published_USD_per_token',
+            'provider_pricing': pricing,
             'billing_source_url': 'https://huggingface.co/docs/inference-providers/pricing'}
 
 

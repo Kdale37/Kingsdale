@@ -30,6 +30,9 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(route['model'], 'Qwen/Qwen3-4B:featherless-ai')
         self.assertEqual(route['api_url'], hf.HF_CHAT)
         self.assertEqual(b.dec(route['completion']), b.dec('.0000008'))
+        rounded = {**detail, 'pricing': {'prompt': '.0000004312', 'completion': '.00000112',
+                                        'input': '.431', 'output': '1.12'}}
+        self.assertEqual(hf.featherless_quote(detail['id'], lambda url: rounded)['prompt'], '4.312E-7')
         for change in ({'id': 'other/model'}, {'status': 'offline'},
                        {'pricing': {'prompt': '.1'}},
                        {'pricing': {'prompt': '.1', 'completion': '.2', 'request': '.01'}},
