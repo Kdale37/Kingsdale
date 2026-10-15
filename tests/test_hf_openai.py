@@ -19,6 +19,42 @@ def entry(identity='test/model-3B'):
 
 
 class ProviderTests(unittest.TestCase):
+    def test_featherless_public_prices_validate_identity_units_and_extra_fees(self):
+        detail = {'id': 'Qwen/Qwen3-4B', 'status': 'active',
+                  'pricing': {'prompt': '0.0000004', 'completion': '0.0000008',
+                              'input': .4, 'output': .8, 'image': '0', 'request': '0'}}
+        def api(url):
+            self.assertEqual(url, hf.FEATHERLESS_MODELS + detail['id'])
+            return detail
+        route = hf.featherless_quote(detail['id'], api)
+        self.assertEqual(route['model'], 'Qwen/Qwen3-4B:featherless-ai')
+        self.assertEqual(route['api_url'], hf.HF_CHAT)
+        self.assertEqual(b.dec(route['completion']), b.dec('.0000008'))
+        for change in ({'id': 'other/model'}, {'status': 'offline'},
+                       {'pricing': {'prompt': '.1'}},
+                       {'pricing': {'prompt': '.1', 'completion': '.2', 'request': '.01'}},
+                       {'pricing': {'prompt': '.1', 'completion': '.2', 'input': 1}}):
+            with self.subTest(change=change), self.assertRaises(b.SetupError):
+                hf.featherless_quote('Qwen/Qwen3-4B', lambda url: {**detail, **change})
+
+    def test_refresh_prices_live_hf_featherless_route_from_public_provider(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'catalog.json'
+            b.write_json(path, {'models': [{'id': 'qwen', 'hf_id': 'Qwen/Qwen3-4B'}]})
+            def api(url, **kwargs):
+                if url == hf.HF_MODELS:
+                    return {'data': [entry()]}
+                if url.startswith(hf.FEATHERLESS_MODELS):
+                    self.assertFalse(kwargs)
+                    return {'id': 'Qwen/Qwen3-4B', 'status': 'active',
+                            'pricing': {'prompt': '.0000004', 'completion': '.0000008'}}
+                return {'id': 'Qwen/Qwen3-4B', 'safetensors': {'total': 4_000_000_000},
+                        'cardData': {'license': 'apache-2.0'}, 'sha': 'revision',
+                        'inferenceProviderMapping': {'featherless-ai': {'status': 'live', 'task': 'conversational'}}}
+            model = hf.refresh(path, api)['models'][0]
+            self.assertEqual(model['availability'], 'available')
+            self.assertEqual(model['route']['providers'], ['featherless-ai'])
+
     def test_qwen_uses_verified_alternate_route_without_fallback(self):
         model = entry('Qwen/Qwen3.5-9B')
         with self.assertRaises(b.SetupError):

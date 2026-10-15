@@ -8,6 +8,7 @@ import benchmark as b
 HF_MODELS = 'https://router.huggingface.co/v1/models'
 HF_CHAT = 'https://router.huggingface.co/v1/chat/completions'
 OPENAI_CHAT = 'https://api.openai.com/v1/chat/completions'
+FEATHERLESS_MODELS = 'https://api.featherless.ai/v1/models/'
 HF_PROVIDERS = {'featherless-ai', 'nscale', 'deepinfra', 'together', 'fireworks-ai',
                 'groq', 'cerebras', 'novita', 'hf-inference', 'scaleway', 'ovhcloud',
                 'publicai', 'nebius', 'sambanova', 'friendli'}
@@ -44,6 +45,29 @@ def quote(entry):
     if not candidates:
         raise b.SetupError('Aktiv rute mangler verificerbar tokenpris; ikke kørt inden for budgettet')
     return min(candidates, key=lambda row: b.dec(row['prompt']) + b.dec(row['completion']))
+
+
+def featherless_quote(identity, api=b.request_json):
+    # Public read only: never forward HF/OpenAI credentials to this host.
+    url = FEATHERLESS_MODELS + urllib.parse.quote(identity, safe='/')
+    detail = api(url)
+    if detail.get('id') != identity or detail.get('status') != 'active':
+        raise b.SetupError('Featherless-modelidentitet eller aktiv status er ikke verificeret')
+    pricing = detail.get('pricing', {})
+    prompt, completion = b.dec(pricing.get('prompt')), b.dec(pricing.get('completion'))
+    for key, value in pricing.items():
+        if key in ('prompt', 'completion', 'input', 'output'):
+            continue
+        if b.dec(value) != 0:
+            raise b.SetupError('Featherless har ekstra prisfelter uden et verificeret loft')
+    for key, rate in (('input', prompt), ('output', completion)):
+        if key in pricing and b.dec(pricing[key]) / 1_000_000 != rate:
+            raise b.SetupError('Featherless-prisens enheder er inkonsistente')
+    return {'service': 'huggingface', 'api_url': HF_CHAT,
+            'model': identity + ':featherless-ai', 'providers': ['featherless-ai'],
+            'prompt': str(prompt), 'completion': str(completion), 'checked_at': b.now(),
+            'source_url': url, 'price_basis': 'provider_published_USD_per_token',
+            'billing_source_url': 'https://huggingface.co/docs/inference-providers/pricing'}
 
 
 def refresh(path, api=b.request_json, snapshot=None):
@@ -90,22 +114,23 @@ def refresh(path, api=b.request_json, snapshot=None):
                     if detail.get('status') == 'live' and detail.get('task') == 'conversational'
                     and provider in HF_PROVIDERS}
             entry = current.get(canonical) or current.get(identity)
-            if not entry:
-                if live:
-                    model['availability'] = 'unpriced'
-                    model['reason'] = 'Aktiv Hugging Face-rute, men ingen offentlig verificerbar tokenpris'
-                    model['live_providers'] = sorted(live)
-                else:
-                    model['reason'] = 'Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere'
+            if not entry and not live:
+                model['reason'] = 'Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere'
                 retained.append(model)
                 continue
             try:
-                model['route'] = quote(entry)
-                model['route']['checked_at'] = source_time
+                try:
+                    model['route'] = quote(entry or {'id': canonical})
+                    model['route']['checked_at'] = source_time
+                except b.SetupError:
+                    if 'featherless-ai' not in live or canonical in HF_PROVIDER_OVERRIDES:
+                        raise
+                    model['route'] = featherless_quote(canonical, api)
                 model['availability'] = 'available'
             except b.SetupError as exc:
                 model['availability'] = 'unpriced'
                 model['reason'] = str(exc)
+                model['live_providers'] = sorted(live)
         except b.SetupError as exc:
             model['reason'] = str(exc)
             # Never retain an old verification if the current check fails.
