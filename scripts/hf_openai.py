@@ -21,6 +21,10 @@ JUDGE_ROUTE = {'service': 'openai', 'api_url': OPENAI_CHAT, 'model': 'gpt-5-mini
                'price_basis': 'published_standard_token_rates'}
 
 
+class ProviderUnavailable(b.SetupError):
+    pass
+
+
 def quote(entry):
     candidates = []
     for provider in entry.get('providers', []):
@@ -51,8 +55,12 @@ def featherless_quote(identity, api=b.request_json):
     # Public read only: never forward HF/OpenAI credentials to this host.
     url = FEATHERLESS_MODELS + urllib.parse.quote(identity, safe='/')
     detail = api(url)
-    if detail.get('id') != identity or detail.get('status') != 'active':
-        raise b.SetupError('Featherless-modelidentitet eller aktiv status er ikke verificeret')
+    if detail.get('id') != identity:
+        raise b.SetupError('Featherless-modelidentitet er ikke verificeret')
+    if detail.get('status') in ('not_deployed', 'pending_deploy', 'offline'):
+        raise ProviderUnavailable('Featherless angiver ikke modellen som aktiv; HF-rutens tilgængelighed er ikke bekræftet')
+    if detail.get('status') != 'active':
+        raise b.SetupError('Featherless-modelstatus er ikke verificeret')
     pricing = detail.get('pricing', {})
     prompt, completion = b.dec(pricing.get('prompt')), b.dec(pricing.get('completion'))
     for key, value in pricing.items():
@@ -135,7 +143,7 @@ def refresh(path, api=b.request_json, snapshot=None):
                     model['route'] = featherless_quote(canonical, api)
                 model['availability'] = 'available'
             except b.SetupError as exc:
-                model['availability'] = 'unpriced'
+                model['availability'] = 'unavailable' if isinstance(exc, ProviderUnavailable) else 'unpriced'
                 model['reason'] = str(exc)
                 model['live_providers'] = sorted(live)
         except b.SetupError as exc:

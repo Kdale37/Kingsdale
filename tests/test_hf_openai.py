@@ -33,6 +33,8 @@ class ProviderTests(unittest.TestCase):
         rounded = {**detail, 'pricing': {'prompt': '.0000004312', 'completion': '.00000112',
                                         'input': '.431', 'output': '1.12'}}
         self.assertEqual(hf.featherless_quote(detail['id'], lambda url: rounded)['prompt'], '4.312E-7')
+        rounded['pricing']['input'] = '.432'
+        self.assertEqual(hf.featherless_quote(detail['id'], lambda url: rounded)['prompt'], '4.32E-7')
         for change in ({'id': 'other/model'}, {'status': 'offline'},
                        {'pricing': {'prompt': '.1'}},
                        {'pricing': {'prompt': '.1', 'completion': '.2', 'request': '.01'}},
