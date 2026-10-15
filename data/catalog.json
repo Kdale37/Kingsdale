@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-10-15T18:48:52.950250+00:00",
+  "checked_at": "2026-10-15T19:05:44.612913+00:00",
   "status": "checked",
   "max_parameters_b": 10,
   "scope": "Hugging Face: officielle små modeller og aktuelle routermodeller. Aktiv adgang og verificerbar pris vises separat.",
@@ -17,7 +17,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:40.382853+00:00",
+      "verified_at": "2026-10-15T19:05:25.881092+00:00",
       "hf_revision": "683d002dd99d8f95104d31e70391a39348857f4e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 7.0,
@@ -48,9 +48,17 @@
         ],
         "prompt": "1E-7",
         "completion": "2E-7",
-        "checked_at": "2026-10-15T18:48:40.903607+00:00",
+        "checked_at": "2026-10-15T19:05:26.818398+00:00",
         "source_url": "https://api.featherless.ai/v1/models/ByteDance-Seed/UI-TARS-1.5-7B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000001",
+          "completion": "0.0000002",
+          "image": "0",
+          "request": "0",
+          "input": 0.1,
+          "output": 0.2
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -79,7 +87,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:40.949202+00:00",
+      "verified_at": "2026-10-15T19:05:26.865264+00:00",
       "hf_revision": "6a6f4aa4197940add57724a7707d069478df56b1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -94,7 +102,7 @@
         ],
         "prompt": "5E-8",
         "completion": "5E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -111,7 +119,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:40.975037+00:00",
+      "verified_at": "2026-10-15T19:05:26.890414+00:00",
       "hf_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -126,9 +134,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:41.425300+00:00",
+        "checked_at": "2026-10-15T19:05:27.792392+00:00",
         "source_url": "https://api.featherless.ai/v1/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -144,7 +160,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:41.448270+00:00",
+      "verified_at": "2026-10-15T19:05:27.817400+00:00",
       "hf_revision": "916b56a44061fd5cd7d6a8fb632557ed4f724f60",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -159,7 +175,7 @@
         ],
         "prompt": "1.5E-7",
         "completion": "1.5E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -215,7 +231,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-2-2b-it",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:41.544068+00:00",
+      "verified_at": "2026-10-15T19:05:27.914921+00:00",
       "hf_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -230,9 +246,17 @@
         ],
         "prompt": "3.2E-7",
         "completion": "0.0000016",
-        "checked_at": "2026-10-15T18:48:41.972697+00:00",
+        "checked_at": "2026-10-15T19:05:28.426617+00:00",
         "source_url": "https://api.featherless.ai/v1/models/google/gemma-2-2b-it",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000032",
+          "completion": "0.0000016",
+          "image": "0",
+          "request": "0",
+          "input": 0.32,
+          "output": 1.6
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -248,7 +272,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-2b-it",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:41.995535+00:00",
+      "verified_at": "2026-10-15T19:05:28.449987+00:00",
       "hf_revision": "96988410cbdaeb8d5093d1ebdc5a8fb563e02bad",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -263,9 +287,17 @@
         ],
         "prompt": "3.2E-7",
         "completion": "0.0000016",
-        "checked_at": "2026-10-15T18:48:42.771925+00:00",
+        "checked_at": "2026-10-15T19:05:29.370721+00:00",
         "source_url": "https://api.featherless.ai/v1/models/google/gemma-2b-it",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000032",
+          "completion": "0.0000016",
+          "image": "0",
+          "request": "0",
+          "input": 0.32,
+          "output": 1.6
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -281,7 +313,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-3-1b-it",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:42.795362+00:00",
+      "verified_at": "2026-10-15T19:05:29.396840+00:00",
       "hf_revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -296,9 +328,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:43.215246+00:00",
+        "checked_at": "2026-10-15T19:05:29.898076+00:00",
         "source_url": "https://api.featherless.ai/v1/models/google/gemma-3-1b-it",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -310,17 +350,38 @@
       "hf_id": "google/gemma-7b-it",
       "license": "gemma",
       "license_status": "verified_metadata",
-      "availability": "unpriced",
+      "availability": "available",
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-7b-it",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:43.237288+00:00",
+      "verified_at": "2026-10-15T19:05:29.920956+00:00",
       "hf_revision": "9c5798d27f588501ce1e108079d2a19e4c3a2353",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
         "featherless-ai"
       ],
-      "reason": "Featherless-prisens enheder er inkonsistente"
+      "route": {
+        "service": "huggingface",
+        "api_url": "https://router.huggingface.co/v1/chat/completions",
+        "model": "google/gemma-7b-it:featherless-ai",
+        "providers": [
+          "featherless-ai"
+        ],
+        "prompt": "4.312E-7",
+        "completion": "0.00000112",
+        "checked_at": "2026-10-15T19:05:30.385716+00:00",
+        "source_url": "https://api.featherless.ai/v1/models/google/gemma-7b-it",
+        "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000004312",
+          "completion": "0.00000112",
+          "image": "0",
+          "request": "0",
+          "input": 0.431,
+          "output": 1.12
+        },
+        "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
+      }
     },
     {
       "id": "google/gemma-3-4b-it",
@@ -334,7 +395,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/google/gemma-3-4b-it",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:43.746438+00:00",
+      "verified_at": "2026-10-15T19:05:30.409607+00:00",
       "hf_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -362,7 +423,7 @@
         ],
         "prompt": "5E-8",
         "completion": "1E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -379,7 +440,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/ibm-granite/granite-3.3-2b-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:43.773302+00:00",
+      "verified_at": "2026-10-15T19:05:30.433379+00:00",
       "hf_revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -396,7 +457,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/ibm-granite/granite-3.3-8b-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:43.797576+00:00",
+      "verified_at": "2026-10-15T19:05:30.484690+00:00",
       "hf_revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -413,7 +474,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:43.819787+00:00",
+      "verified_at": "2026-10-15T19:05:30.508468+00:00",
       "hf_revision": "d5f01a3ea75f088947be3aae039f4ad52837dfde",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -447,7 +508,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:43.841731+00:00",
+      "verified_at": "2026-10-15T19:05:30.531667+00:00",
       "hf_revision": "f8de16cdcdbc6c779ca517604e050d82cc119e44",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -482,7 +543,7 @@
         ],
         "prompt": "6.0000000000000005E-8",
         "completion": "2.5E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -528,7 +589,7 @@
       "license": "lfm1.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:43.905417+00:00",
+      "verified_at": "2026-10-15T19:05:30.599149+00:00",
       "hf_revision": "654f9463ce32b05d0429d76fe1f580b27d4c1ac0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "license_note": "LFM Open License: tilpasning tilladt under vilkår; kommerciel omsætningsgrænse.",
@@ -546,7 +607,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:43.932316+00:00",
+      "verified_at": "2026-10-15T19:05:30.620664+00:00",
       "hf_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -561,9 +622,17 @@
         ],
         "prompt": "9.25E-8",
         "completion": "9.5E-8",
-        "checked_at": "2026-10-15T18:48:44.473701+00:00",
+        "checked_at": "2026-10-15T19:05:31.630910+00:00",
         "source_url": "https://api.featherless.ai/v1/models/meta-llama/Meta-Llama-3-8B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000000925",
+          "completion": "0.000000095",
+          "image": "0",
+          "request": "0",
+          "input": 0.0925,
+          "output": 0.095
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -579,7 +648,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:44.497144+00:00",
+      "verified_at": "2026-10-15T19:05:31.655353+00:00",
       "hf_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -616,7 +685,7 @@
         ],
         "prompt": "2E-8",
         "completion": "5E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -633,7 +702,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:44.531095+00:00",
+      "verified_at": "2026-10-15T19:05:31.680661+00:00",
       "hf_revision": "9213176726f574b556790deb65791e0c5aa438b6",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -662,9 +731,17 @@
         ],
         "prompt": "2.7E-8",
         "completion": "2.01E-7",
-        "checked_at": "2026-10-15T18:48:44.992615+00:00",
+        "checked_at": "2026-10-15T19:05:32.547671+00:00",
         "source_url": "https://api.featherless.ai/v1/models/meta-llama/Llama-3.2-1B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.000000027",
+          "completion": "0.000000201",
+          "image": "0",
+          "request": "0",
+          "input": 0.027,
+          "output": 0.201
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -680,7 +757,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
       "gated": true,
-      "verified_at": "2026-10-15T18:48:45.018825+00:00",
+      "verified_at": "2026-10-15T19:05:32.579128+00:00",
       "hf_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -712,9 +789,17 @@
         ],
         "prompt": "5.09E-8",
         "completion": "3.35E-7",
-        "checked_at": "2026-10-15T18:48:45.568524+00:00",
+        "checked_at": "2026-10-15T19:05:33.470986+00:00",
         "source_url": "https://api.featherless.ai/v1/models/meta-llama/Llama-3.2-3B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000000509",
+          "completion": "0.000000335",
+          "image": "0",
+          "request": "0",
+          "input": 0.0509,
+          "output": 0.335
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -743,7 +828,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.618975+00:00",
+      "verified_at": "2026-10-15T19:05:33.518643+00:00",
       "hf_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -760,7 +845,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.643472+00:00",
+      "verified_at": "2026-10-15T19:05:33.544471+00:00",
       "hf_revision": "b35d4dfe56c142746f54dbd64f579faab2744308",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -791,7 +876,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.677110+00:00",
+      "verified_at": "2026-10-15T19:05:33.567911+00:00",
       "hf_revision": "5b26027e7b19eeb4b7352e1fed3926375dd2cb4d",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -836,7 +921,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.722819+00:00",
+      "verified_at": "2026-10-15T19:05:33.613771+00:00",
       "hf_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -853,7 +938,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/allenai/Olmo-3-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.747578+00:00",
+      "verified_at": "2026-10-15T19:05:33.636738+00:00",
       "hf_revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -870,7 +955,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.777674+00:00",
+      "verified_at": "2026-10-15T19:05:33.659273+00:00",
       "hf_revision": "f3c06aed622e14ca0abf5115094e4fc9a9948f36",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -887,7 +972,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3-small-128k-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.799037+00:00",
+      "verified_at": "2026-10-15T19:05:33.682087+00:00",
       "hf_revision": "e95b185a59a58450c9b1dd7347a9dee78f18113e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -904,7 +989,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.826035+00:00",
+      "verified_at": "2026-10-15T19:05:33.707913+00:00",
       "hf_revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -921,7 +1006,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.849150+00:00",
+      "verified_at": "2026-10-15T19:05:33.731261+00:00",
       "hf_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -938,7 +1023,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:45.878173+00:00",
+      "verified_at": "2026-10-15T19:05:33.754934+00:00",
       "hf_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -953,9 +1038,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:46.291309+00:00",
+        "checked_at": "2026-10-15T19:05:34.660854+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen2.5-0.5B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -971,7 +1064,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:46.311761+00:00",
+      "verified_at": "2026-10-15T19:05:34.683947+00:00",
       "hf_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -986,9 +1079,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:46.781004+00:00",
+        "checked_at": "2026-10-15T19:05:35.732169+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen2.5-1.5B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1004,7 +1105,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:46.808234+00:00",
+      "verified_at": "2026-10-15T19:05:35.758078+00:00",
       "hf_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1019,9 +1120,17 @@
         ],
         "prompt": "3.2E-7",
         "completion": "0.0000016",
-        "checked_at": "2026-10-15T18:48:47.296231+00:00",
+        "checked_at": "2026-10-15T19:05:36.694599+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen2.5-3B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000032",
+          "completion": "0.0000016",
+          "image": "0",
+          "request": "0",
+          "input": 0.32,
+          "output": 1.6
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1037,7 +1146,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-0.6B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:47.316367+00:00",
+      "verified_at": "2026-10-15T19:05:36.719385+00:00",
       "hf_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1052,9 +1161,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:47.853831+00:00",
+        "checked_at": "2026-10-15T19:05:37.208080+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3-0.6B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1070,7 +1187,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-1.7B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:47.875024+00:00",
+      "verified_at": "2026-10-15T19:05:37.231415+00:00",
       "hf_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1085,9 +1202,17 @@
         ],
         "prompt": "3.2E-7",
         "completion": "0.0000016",
-        "checked_at": "2026-10-15T18:48:48.371790+00:00",
+        "checked_at": "2026-10-15T19:05:37.671384+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3-1.7B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000032",
+          "completion": "0.0000016",
+          "image": "0",
+          "request": "0",
+          "input": 0.32,
+          "output": 1.6
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1103,7 +1228,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-4B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:48.394032+00:00",
+      "verified_at": "2026-10-15T19:05:37.698850+00:00",
       "hf_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1118,9 +1243,17 @@
         ],
         "prompt": "4E-7",
         "completion": "8E-7",
-        "checked_at": "2026-10-15T18:48:48.862502+00:00",
+        "checked_at": "2026-10-15T19:05:38.650238+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3-4B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000004",
+          "completion": "0.0000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.4,
+          "output": 0.8
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1136,7 +1269,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:48.892187+00:00",
+      "verified_at": "2026-10-15T19:05:38.673686+00:00",
       "hf_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1151,7 +1284,7 @@
         ],
         "prompt": "1E-8",
         "completion": "3E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1168,7 +1301,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:48.916276+00:00",
+      "verified_at": "2026-10-15T19:05:38.697239+00:00",
       "hf_revision": "2fc06364715b967f1860aea9cf38778875588b17",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1185,7 +1318,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-2B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:48.940107+00:00",
+      "verified_at": "2026-10-15T19:05:38.722543+00:00",
       "hf_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1200,9 +1333,17 @@
         ],
         "prompt": "8E-8",
         "completion": "4E-7",
-        "checked_at": "2026-10-15T18:48:49.540041+00:00",
+        "checked_at": "2026-10-15T19:05:39.638266+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3.5-2B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000008",
+          "completion": "0.0000004",
+          "image": "0",
+          "request": "0",
+          "input": 0.08,
+          "output": 0.4
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1218,7 +1359,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3.5-4B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:49.565913+00:00",
+      "verified_at": "2026-10-15T19:05:39.662163+00:00",
       "hf_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1233,9 +1374,17 @@
         ],
         "prompt": "1E-7",
         "completion": "2E-7",
-        "checked_at": "2026-10-15T18:48:50.042593+00:00",
+        "checked_at": "2026-10-15T19:05:40.202021+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3.5-4B",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000001",
+          "completion": "0.0000002",
+          "image": "0",
+          "request": "0",
+          "input": 0.1,
+          "output": 0.2
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1251,7 +1400,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:50.065910+00:00",
+      "verified_at": "2026-10-15T19:05:40.226280+00:00",
       "hf_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 7.0,
@@ -1267,9 +1416,17 @@
         ],
         "prompt": "1.7E-7",
         "completion": "2E-7",
-        "checked_at": "2026-10-15T18:48:50.538246+00:00",
+        "checked_at": "2026-10-15T19:05:40.906493+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen2.5-7B-Instruct",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000017",
+          "completion": "0.0000002",
+          "image": "0",
+          "request": "0",
+          "input": 0.17,
+          "output": 0.2
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1285,7 +1442,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/Qwen/Qwen3-8B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:50.575486+00:00",
+      "verified_at": "2026-10-15T19:05:40.931185+00:00",
       "hf_revision": "b968826d9c46dd6066d109eabc6255188de91218",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 8.0,
@@ -1301,7 +1458,7 @@
         ],
         "prompt": "7E-8",
         "completion": "1.8E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1313,12 +1470,12 @@
       "family": "qwen",
       "parameters_b": 8.767123696,
       "source_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
-      "availability": "unpriced",
+      "availability": "available",
       "eligibility": "eligible",
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:50.599784+00:00",
+      "verified_at": "2026-10-15T19:05:40.957344+00:00",
       "hf_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 8.0,
@@ -1343,7 +1500,28 @@
       "live_providers": [
         "featherless-ai"
       ],
-      "reason": "Featherless-prisens enheder er inkonsistente"
+      "route": {
+        "service": "huggingface",
+        "api_url": "https://router.huggingface.co/v1/chat/completions",
+        "model": "Qwen/Qwen3-VL-8B-Instruct:featherless-ai",
+        "providers": [
+          "featherless-ai"
+        ],
+        "prompt": "1.818E-7",
+        "completion": "0.0000013513",
+        "checked_at": "2026-10-15T19:05:41.823926+00:00",
+        "source_url": "https://api.featherless.ai/v1/models/Qwen/Qwen3-VL-8B-Instruct",
+        "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000001818",
+          "completion": "0.0000013513",
+          "image": "0",
+          "request": "0",
+          "input": 0.18175,
+          "output": 1.35125
+        },
+        "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
+      }
     },
     {
       "id": "qwen/qwen3-vl-8b-thinking",
@@ -1357,7 +1535,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:51.056550+00:00",
+      "verified_at": "2026-10-15T19:05:41.851189+00:00",
       "hf_revision": "92f3c4b4feadd3a016ef468d103bb5f58b2a2c6b",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 8.0,
@@ -1378,7 +1556,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:51.565994+00:00",
+      "verified_at": "2026-10-15T19:05:42.362810+00:00",
       "hf_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -1412,7 +1590,7 @@
         ],
         "prompt": "1.7E-7",
         "completion": "2.5E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1443,7 +1621,7 @@
       "license": "llama3",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:51.610030+00:00",
+      "verified_at": "2026-10-15T19:05:42.409330+00:00",
       "hf_revision": "8479c2a7ee119c935b9a02c921cc2a85b698dfe8",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "supported_parameters": [
@@ -1476,9 +1654,17 @@
         ],
         "prompt": "9.25E-8",
         "completion": "9.5E-8",
-        "checked_at": "2026-10-15T18:48:52.112532+00:00",
+        "checked_at": "2026-10-15T19:05:43.310680+00:00",
         "source_url": "https://api.featherless.ai/v1/models/Sao10K/L3-8B-Lunaris-v1",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.0000000925",
+          "completion": "0.000000095",
+          "image": "0",
+          "request": "0",
+          "input": 0.0925,
+          "output": 0.095
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1494,7 +1680,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.134188+00:00",
+      "verified_at": "2026-10-15T19:05:43.336353+00:00",
       "hf_revision": "31b70e2e869a7173562077fd711b654946d38674",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1511,7 +1697,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.155509+00:00",
+      "verified_at": "2026-10-15T19:05:43.361841+00:00",
       "hf_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1528,7 +1714,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.180780+00:00",
+      "verified_at": "2026-10-15T19:05:43.384176+00:00",
       "hf_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1545,7 +1731,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.204163+00:00",
+      "verified_at": "2026-10-15T19:05:43.407803+00:00",
       "hf_revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1575,7 +1761,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.248131+00:00",
+      "verified_at": "2026-10-15T19:05:43.454428+00:00",
       "hf_revision": "9a341cd1b679d3efd23b46e847b01745a71ed792",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 1.8,
@@ -1593,7 +1779,7 @@
       "license": "apache-2.0",
       "license_status": "verified_metadata",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.269591+00:00",
+      "verified_at": "2026-10-15T19:05:43.478752+00:00",
       "hf_revision": "9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "nominal_parameters_b": 7.0,
@@ -1611,7 +1797,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.297810+00:00",
+      "verified_at": "2026-10-15T19:05:43.502358+00:00",
       "hf_revision": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "live_providers": [
@@ -1626,9 +1812,17 @@
         ],
         "prompt": "4E-8",
         "completion": "8E-8",
-        "checked_at": "2026-10-15T18:48:52.729037+00:00",
+        "checked_at": "2026-10-15T19:05:44.350891+00:00",
         "source_url": "https://api.featherless.ai/v1/models/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         "price_basis": "provider_published_USD_per_token",
+        "provider_pricing": {
+          "prompt": "0.00000004",
+          "completion": "0.00000008",
+          "image": "0",
+          "request": "0",
+          "input": 0.04,
+          "output": 0.08
+        },
         "billing_source_url": "https://huggingface.co/docs/inference-providers/pricing"
       }
     },
@@ -1644,7 +1838,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/01-ai/Yi-1.5-6B-Chat",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.752143+00:00",
+      "verified_at": "2026-10-15T19:05:44.415416+00:00",
       "hf_revision": "771924d1c83d67527d665913415d7086f11ea9c0",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1661,7 +1855,7 @@
       "eligibility": "eligible",
       "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.776746+00:00",
+      "verified_at": "2026-10-15T19:05:44.437714+00:00",
       "hf_revision": "1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "reason": "Ingen aktiv conversational-rute hos de valgte Hugging Face-udbydere"
@@ -1691,7 +1885,7 @@
       "source_url": "https://huggingface.co/ibm-granite/granite-4.2-3b",
       "license": "apache-2.0",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.823643+00:00",
+      "verified_at": "2026-10-15T19:05:44.488634+00:00",
       "hf_revision": "e459acceac81e5fe67c07d9cfc72329a332e7eb1",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "route": {
@@ -1703,7 +1897,7 @@
         ],
         "prompt": "3.0000000000000002E-8",
         "completion": "1.2000000000000001E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1737,7 +1931,7 @@
       "source_url": "https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509",
       "license": "apache-2.0",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.869589+00:00",
+      "verified_at": "2026-10-15T19:05:44.537965+00:00",
       "hf_revision": "b946d40447b2b597999b9c86d44bee0b452c919f",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "route": {
@@ -1749,7 +1943,7 @@
         ],
         "prompt": "1E-7",
         "completion": "2E-7",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1766,7 +1960,7 @@
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
       "license": "apache-2.0",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.892701+00:00",
+      "verified_at": "2026-10-15T19:05:44.563473+00:00",
       "hf_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "route": {
@@ -1778,7 +1972,7 @@
         ],
         "prompt": "1E-8",
         "completion": "3E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1795,7 +1989,7 @@
       "source_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct",
       "license": "qwen-research",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.915246+00:00",
+      "verified_at": "2026-10-15T19:05:44.589698+00:00",
       "hf_revision": "488639f1ff808d1d3d0ba301aef8c11461451ec5",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "route": {
@@ -1807,7 +2001,7 @@
         ],
         "prompt": "1E-8",
         "completion": "3E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -1824,7 +2018,7 @@
       "source_url": "https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507",
       "license": "apache-2.0",
       "gated": false,
-      "verified_at": "2026-10-15T18:48:52.950208+00:00",
+      "verified_at": "2026-10-15T19:05:44.612866+00:00",
       "hf_revision": "768f209d9ea81521153ed38c47d515654e938aea",
       "hardware_note": "4-bit QLoRA, korte sekvenser og batch 1 er et estimat; ikke testet på GPU.",
       "route": {
@@ -1836,7 +2030,7 @@
         ],
         "prompt": "1E-8",
         "completion": "3E-8",
-        "checked_at": "2026-10-15T18:48:40.273785+00:00",
+        "checked_at": "2026-10-15T19:05:25.827326+00:00",
         "source_url": "https://router.huggingface.co/v1/models",
         "price_basis": "USD_per_million_tokens"
       }
@@ -2612,6 +2806,14 @@
     {
       "name": "Hugging Face router: aktive udbydere og priser",
       "url": "https://router.huggingface.co/v1/models"
+    },
+    {
+      "name": "Featherless: offentlige modelspecifikke tokenpriser",
+      "url": "https://featherless.ai/docs/api-reference-models"
+    },
+    {
+      "name": "Hugging Face: viderefakturering af udbyderpriser",
+      "url": "https://huggingface.co/docs/inference-providers/pricing"
     }
   ],
   "hosted_catalog_count": 469,
