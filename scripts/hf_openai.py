@@ -150,6 +150,11 @@ def refresh(path, api=b.request_json, snapshot=None):
     sources = catalog.setdefault('sources', [])
     if not any(source.get('url') == HF_MODELS for source in sources):
         sources.append({'name': 'Hugging Face router: aktive udbydere og priser', 'url': HF_MODELS})
+    for name, url in (
+        ('Featherless: offentlige modelspecifikke tokenpriser', 'https://featherless.ai/docs/api-reference-models'),
+        ('Hugging Face: viderefakturering af udbyderpriser', 'https://huggingface.co/docs/inference-providers/pricing')):
+        if not any(source.get('url') == url for source in sources):
+            sources.append({'name': name, 'url': url})
     b.write_json(path, catalog)
     print(f'Hugging Face: {sum(m["availability"] == "available" for m in models)} prisverificerede modeller; '
           f'{sum(m["availability"] == "unpriced" for m in models)} aktive ruter uden verificeret pris')
